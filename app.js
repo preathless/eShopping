@@ -27,6 +27,10 @@ app.get('/login', (req, res) => {
     res.render('login');
 })
 
+app.get('/cart', (req, res) => {
+    res.render('cart');
+})
+
 app.get('/contact', (req, res) => {
     res.render('contact-us');
 })
