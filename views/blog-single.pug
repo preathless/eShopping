@@ -1,0 +1,332 @@
+extends layout
+block content
+  section
+    .container
+      .row
+        .col-sm-3
+          .left-sidebar
+            h2 Category
+            #accordian.panel-group.category-products
+              // category-productsr
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a(data-toggle='collapse', data-parent='#accordian', href='#sportswear')
+                      span.badge.pull-right
+                        i.fa.fa-plus
+                      | 											Sportswear
+                #sportswear.panel-collapse.collapse
+                  .panel-body
+                    ul
+                      li
+                        a(href='') Nike
+                      li
+                        a(href='') Under Armour
+                      li
+                        a(href='') Adidas
+                      li
+                        a(href='') Puma
+                      li
+                        a(href='') ASICS
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a(data-toggle='collapse', data-parent='#accordian', href='#mens')
+                      span.badge.pull-right
+                        i.fa.fa-plus
+                      | 											Mens
+                #mens.panel-collapse.collapse
+                  .panel-body
+                    ul
+                      li
+                        a(href='') Fendi
+                      li
+                        a(href='') Guess
+                      li
+                        a(href='') Valentino
+                      li
+                        a(href='') Dior
+                      li
+                        a(href='') Versace
+                      li
+                        a(href='') Armani
+                      li
+                        a(href='') Prada
+                      li
+                        a(href='') Dolce and Gabbana
+                      li
+                        a(href='') Chanel
+                      li
+                        a(href='') Gucci
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a(data-toggle='collapse', data-parent='#accordian', href='#womens')
+                      span.badge.pull-right
+                        i.fa.fa-plus
+                      | 											Womens
+                #womens.panel-collapse.collapse
+                  .panel-body
+                    ul
+                      li
+                        a(href='') Fendi
+                      li
+                        a(href='') Guess
+                      li
+                        a(href='') Valentino
+                      li
+                        a(href='') Dior
+                      li
+                        a(href='') Versace
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a(href='#') Kids
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a(href='#') Fashion
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a(href='#') Households
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a(href='#') Interiors
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a(href='#') Clothing
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a(href='#') Bags
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a(href='#') Shoes
+            // /category-products
+            .brands_products
+              // brands_products
+              h2 Brands
+              .brands-name
+                ul.nav.nav-pills.nav-stacked
+                  li
+                    a(href='')
+                      span.pull-right (50)
+                      | Acne
+                  li
+                    a(href='')
+                      span.pull-right (56)
+                      | Grüne Erde
+                  li
+                    a(href='')
+                      span.pull-right (27)
+                      | Albiro
+                  li
+                    a(href='')
+                      span.pull-right (32)
+                      | Ronhill
+                  li
+                    a(href='')
+                      span.pull-right (5)
+                      | Oddmolly
+                  li
+                    a(href='')
+                      span.pull-right (9)
+                      | Boudestijn
+                  li
+                    a(href='')
+                      span.pull-right (4)
+                      | Rösch creative culture
+            // /brands_products
+            .price-range
+              // price-range
+              h2 Price Range
+              .well
+                input#sl2.span2(type='text', value='', data-slider-min='0', data-slider-max='600', data-slider-step='5', data-slider-value='[250,450]')
+                br
+                b $ 0
+                b.pull-right $ 600
+            // /price-range
+            .shipping.text-center
+              // shipping
+              img(src='../themes/font-end/assets/images/home/shipping.jpg', alt='')
+            // /shipping
+        .col-sm-9
+          .blog-post-area
+            h2.title.text-center Latest From our Blog
+            .single-blog-post
+              h3 Girls Pink T Shirt arrived in store
+              .post-meta
+                ul
+                  li
+                    i.fa.fa-user
+                    |  Mac Doe
+                  li
+                    i.fa.fa-clock-o
+                    |  1:33 pm
+                  li
+                    i.fa.fa-calendar
+                    |  DEC 5, 2013
+                span
+                  i.fa.fa-star
+                  i.fa.fa-star
+                  i.fa.fa-star
+                  i.fa.fa-star
+                  i.fa.fa-star-half-o
+              a(href='')
+                img(src='../themes/font-end/assets/images/blog/blog-one.jpg', alt='')
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              br
+              p
+                | Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+              br
+              p
+                | Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+              br
+              p
+                | Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+              .pager-area
+                ul.pager.pull-right
+                  li
+                    a(href='#') Pre
+                  li
+                    a(href='#') Next
+          // /blog-post-area
+          .rating-area
+            ul.ratings
+              li.rate-this Rate this item:
+              li
+                i.fa.fa-star.color
+                i.fa.fa-star.color
+                i.fa.fa-star.color
+                i.fa.fa-star
+                i.fa.fa-star
+              li.color (6 votes)
+            ul.tag
+              li TAG:
+              li
+                a.color(href='')
+                  | Pink
+                  span /
+              li
+                a.color(href='')
+                  | T-Shirt
+                  span /
+              li
+                a.color(href='') Girls
+          // /rating-area
+          .socials-share
+            a(href='')
+              img(src='../themes/font-end/assets/images/blog/socials.png', alt='')
+          // /socials-share
+          .media.commnets
+            a.pull-left(href='#')
+              img.media-object(..='', themes='', font-end='', assets='', images='', blog='', alt='')
+            .media-body
+              h4.media-heading Annie Davis
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              .blog-socials
+                ul
+                  li
+                    a(href='')
+                      i.fa.fa-facebook
+                  li
+                    a(href='')
+                      i.fa.fa-twitter
+                  li
+                    a(href='')
+                      i.fa.fa-dribbble
+                  li
+                    a(href='')
+                      i.fa.fa-google-plus
+                a.btn.btn-primary(href='') Other Posts
+          // Comments
+          .response-area
+            h2 3 RESPONSES
+            ul.media-list
+              li.media
+                a.pull-left(href='#')
+                  img.media-object(..='', themes='', font-end='', assets='', images='', blog='', alt='')
+                .media-body
+                  ul.sinlge-post-meta
+                    li
+                      i.fa.fa-user
+                      | Janis Gallagher
+                    li
+                      i.fa.fa-clock-o
+                      |  1:33 pm
+                    li
+                      i.fa.fa-calendar
+                      |  DEC 5, 2013
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  a.btn.btn-primary(href='')
+                    i.fa.fa-reply
+                    | Replay
+              li.media.second-media
+                a.pull-left(href='#')
+                  img.media-object(..='', themes='', font-end='', assets='', images='', blog='', alt='')
+                .media-body
+                  ul.sinlge-post-meta
+                    li
+                      i.fa.fa-user
+                      | Janis Gallagher
+                    li
+                      i.fa.fa-clock-o
+                      |  1:33 pm
+                    li
+                      i.fa.fa-calendar
+                      |  DEC 5, 2013
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  a.btn.btn-primary(href='')
+                    i.fa.fa-reply
+                    | Replay
+              li.media
+                a.pull-left(href='#')
+                  img.media-object(..='', themes='', font-end='', assets='', images='', blog='', alt='')
+                .media-body
+                  ul.sinlge-post-meta
+                    li
+                      i.fa.fa-user
+                      | Janis Gallagher
+                    li
+                      i.fa.fa-clock-o
+                      |  1:33 pm
+                    li
+                      i.fa.fa-calendar
+                      |  DEC 5, 2013
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  a.btn.btn-primary(href='')
+                    i.fa.fa-reply
+                    | Replay
+          // /Response-area
+          .replay-box
+            .row
+              .col-sm-4
+                h2 Leave a replay
+                form
+                  .blank-arrow
+                    label Your Name
+                  span *
+                  input(type='text', placeholder='write your name...')
+                  .blank-arrow
+                    label Email Address
+                  span *
+                  input(type='email', placeholder='your email address...')
+                  .blank-arrow
+                    label Web Site
+                  input(type='email', placeholder='current city...')
+              .col-sm-8
+                .text-area
+                  .blank-arrow
+                    label Your Name
+                  span *
+                  textarea(name='message', rows='11')
+                  a.btn.btn-primary(href='') post comment
