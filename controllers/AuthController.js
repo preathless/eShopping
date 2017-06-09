@@ -18,7 +18,7 @@ const getSignIn = (req, res) => {
   if (req.user) {
     return res.redirect('/');
   }
-  res.render('auth/signIn', {
+  res.render('login', {
     title: 'Sign In'
   });
 };
@@ -74,7 +74,7 @@ const getSignup = (req, res) => {
   if (req.user) {
     return res.redirect(ROOT);
   }
-  res.render('auth/signUp', {
+  res.render('login', {
     title: 'Create Account'
   });
 };

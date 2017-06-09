@@ -16,6 +16,7 @@ const appPort = 3000;
 // Init
 app.set('port', appPort);
 app.set('views', path.join(__dirname, 'views'));
+
 app.set('view engine', 'pug');
 
 /**

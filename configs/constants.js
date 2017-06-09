@@ -16,9 +16,9 @@ const TEST_PORT = 8000;
 
 const ROUTES = {
   ROOT:     '/',
-  SIGNIN:   '/signIn',
-  SIGNOUT:  '/signOut',
-  SIGNUP:   '/signUp',
+  SIGNIN:   '/signin',
+  SIGNOUT:  '/signout',
+  SIGNUP:   '/signup',
   HOME:     '/home',
   INDEX:    '/index',
   CONTACT:  '/contact',
