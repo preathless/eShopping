@@ -16,10 +16,11 @@ const TEST_PORT = 8000;
 
 const ROUTES = {
   ROOT:     '/',
-  LOGIN:    '/login',
+  SIGNIN:   '/signIn',
+  SIGNOUT:  '/signOut',
+  SIGNUP:   '/signUp',
   HOME:     '/home',
   INDEX:    '/index',
-  LOGOUT:   '/logout',
   CONTACT:  '/contact',
   SHOP:     '/shop',
   PROD:     '/prod',
@@ -27,7 +28,7 @@ const ROUTES = {
   CART:     '/cart',
   404:      '/404',
   BLOG:     '/blog',
-  BLOGSG:   '/blogsg'
+  BLOGSG:   '/blogsingle'
 };
 
 module.exports = {
