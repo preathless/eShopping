@@ -1,0 +1,537 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Blog | E-Shopper
+    link(href='../themes/font-end/assets/css/bootstrap.min.css', rel='stylesheet')
+    link(href='../themes/font-end/assets/css/font-awesome.min.css', rel='stylesheet')
+    link(href='../themes/font-end/assets/css/prettyPhoto.css', rel='stylesheet')
+    link(href='../themes/font-end/assets/css/price-range.css', rel='stylesheet')
+    link(href='../themes/font-end/assets/css/animate.css', rel='stylesheet')
+    link(href='../themes/font-end/assets/css/main.css', rel='stylesheet')
+    link(href='../themes/font-end/assets/css/responsive.css', rel='stylesheet')
+    //if lt IE 9
+      script(src='../themes/font-end/assets/js/html5shiv.js')
+      script(src='../themes/font-end/assets/js/respond.min.js')
+    link(rel='shortcut icon', href='images/ico/favicon.ico')
+    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='images/ico/apple-touch-icon-144-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='images/ico/apple-touch-icon-114-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='images/ico/apple-touch-icon-72-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', href='images/ico/apple-touch-icon-57-precomposed.png')
+  // /head
+  body
+    header#header
+      // header
+      .header_top
+        // header_top
+        .container
+          .row
+            .col-sm-6
+              .contactinfo
+                ul.nav.nav-pills
+                  li
+                    a(href='')
+                      i.fa.fa-phone
+                      |  +2 95 01 88 821
+                  li
+                    a(href='')
+                      i.fa.fa-envelope
+                      |  info@domain.com
+            .col-sm-6
+              .social-icons.pull-right
+                ul.nav.navbar-nav
+                  li
+                    a(href='')
+                      i.fa.fa-facebook
+                  li
+                    a(href='')
+                      i.fa.fa-twitter
+                  li
+                    a(href='')
+                      i.fa.fa-linkedin
+                  li
+                    a(href='')
+                      i.fa.fa-dribbble
+                  li
+                    a(href='')
+                      i.fa.fa-google-plus
+      // /header_top
+      .header-middle
+        // header-middle
+        .container
+          .row
+            .col-sm-4
+              .logo.pull-left
+                a(href='/index')
+                  img(src='../themes/font-end/assets/images/home/logo.png', alt='')
+              .btn-group.pull-right
+                .btn-group
+                  button.btn.btn-default.dropdown-toggle.usa(type='button', data-toggle='dropdown')
+                    | USA
+                    span.caret
+                  ul.dropdown-menu
+                    li
+                      a(href='') Canada
+                    li
+                      a(href='') UK
+                .btn-group
+                  button.btn.btn-default.dropdown-toggle.usa(type='button', data-toggle='dropdown')
+                    | DOLLAR
+                    span.caret
+                  ul.dropdown-menu
+                    li
+                      a(href='') Canadian Dollar
+                    li
+                      a(href='') Pound
+            .col-sm-8
+              .shop-menu.pull-right
+                ul.nav.navbar-nav
+                  li
+                    a(href='')
+                      i.fa.fa-user
+                      |  Account
+                  li
+                    a(href='')
+                      i.fa.fa-star
+                      |  Wishlist
+                  li
+                    a(href='/checkout')
+                      i.fa.fa-crosshairs
+                      |  Checkout
+                  li
+                    a(href='/cart')
+                      i.fa.fa-shopping-cart
+                      |  Cart
+                  li
+                    a(href='/login')
+                      i.fa.fa-lock
+                      |  Login
+      // /header-middle
+      .header-bottom
+        // header-bottom
+        .container
+          .row
+            .col-sm-9
+              .navbar-header
+                button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                  span.sr-only Toggle navigation
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+              .mainmenu.pull-left
+                ul.nav.navbar-nav.collapse.navbar-collapse
+                  li
+                    a(href='/index') Home
+                  li.dropdown
+                    a(href='#')
+                      | Shop
+                      i.fa.fa-angle-down
+                    ul.sub-menu(role='menu')
+                      li
+                        a(href='/shop') Products
+                      li
+                        a(href='/prod') Product Details
+                      li
+                        a(href='/checkout') Checkout
+                      li
+                        a(href='/cart') Cart
+                      li
+                        a(href='/login') Login
+                  li.dropdown
+                    a.active(href='#')
+                      | Blog
+                      i.fa.fa-angle-down
+                    ul.sub-menu(role='menu')
+                      li
+                        a.active(href='blog.ejs') Blog List
+                      li
+                        a(href='blog-single.ejs') Blog Single
+                  li
+                    a(href='/404') 404
+                  li
+                    a(href='/contact') Contact
+            .col-sm-3
+              .search_box.pull-right
+                input(type='text', placeholder='Search')
+      // /header-bottom
+    // /header
+    section
+      .container
+        .row
+          .col-sm-3
+            .left-sidebar
+              h2 Category
+              #accordian.panel-group.category-products
+                // category-productsr
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a(data-toggle='collapse', data-parent='#accordian', href='#sportswear')
+                        span.badge.pull-right
+                          i.fa.fa-plus
+                        | 											Sportswear
+                  #sportswear.panel-collapse.collapse
+                    .panel-body
+                      ul
+                        li
+                          a(href='') Nike
+                        li
+                          a(href='') Under Armour
+                        li
+                          a(href='') Adidas
+                        li
+                          a(href='') Puma
+                        li
+                          a(href='') ASICS
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a(data-toggle='collapse', data-parent='#accordian', href='#mens')
+                        span.badge.pull-right
+                          i.fa.fa-plus
+                        | 											Mens
+                  #mens.panel-collapse.collapse
+                    .panel-body
+                      ul
+                        li
+                          a(href='') Fendi
+                        li
+                          a(href='') Guess
+                        li
+                          a(href='') Valentino
+                        li
+                          a(href='') Dior
+                        li
+                          a(href='') Versace
+                        li
+                          a(href='') Armani
+                        li
+                          a(href='') Prada
+                        li
+                          a(href='') Dolce and Gabbana
+                        li
+                          a(href='') Chanel
+                        li
+                          a(href='') Gucci
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a(data-toggle='collapse', data-parent='#accordian', href='#womens')
+                        span.badge.pull-right
+                          i.fa.fa-plus
+                        | 											Womens
+                  #womens.panel-collapse.collapse
+                    .panel-body
+                      ul
+                        li
+                          a(href='') Fendi
+                        li
+                          a(href='') Guess
+                        li
+                          a(href='') Valentino
+                        li
+                          a(href='') Dior
+                        li
+                          a(href='') Versace
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a(href='#') Kids
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a(href='#') Fashion
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a(href='#') Households
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a(href='#') Interiors
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a(href='#') Clothing
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a(href='#') Bags
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a(href='#') Shoes
+              // /category-products
+              .brands_products
+                // brands_products
+                h2 Brands
+                .brands-name
+                  ul.nav.nav-pills.nav-stacked
+                    li
+                      a(href='')
+                        span.pull-right (50)
+                        | Acne
+                    li
+                      a(href='')
+                        span.pull-right (56)
+                        | Grüne Erde
+                    li
+                      a(href='')
+                        span.pull-right (27)
+                        | Albiro
+                    li
+                      a(href='')
+                        span.pull-right (32)
+                        | Ronhill
+                    li
+                      a(href='')
+                        span.pull-right (5)
+                        | Oddmolly
+                    li
+                      a(href='')
+                        span.pull-right (9)
+                        | Boudestijn
+                    li
+                      a(href='')
+                        span.pull-right (4)
+                        | Rösch creative culture
+              // /brands_products
+              .price-range
+                // price-range
+                h2 Price Range
+                .well
+                  input#sl2.span2(type='text', value='', data-slider-min='0', data-slider-max='600', data-slider-step='5', data-slider-value='[250,450]')
+                  br
+                  b $ 0
+                  b.pull-right $ 600
+              // /price-range
+              .shipping.text-center
+                // shipping
+                img(src='../themes/font-end/assets/images/home/shipping.jpg', alt='')
+              // /shipping
+          .col-sm-9
+            .blog-post-area
+              h2.title.text-center Latest From our Blog
+              .single-blog-post
+                h3 Girls Pink T Shirt arrived in store
+                .post-meta
+                  ul
+                    li
+                      i.fa.fa-user
+                      |  Mac Doe
+                    li
+                      i.fa.fa-clock-o
+                      |  1:33 pm
+                    li
+                      i.fa.fa-calendar
+                      |  DEC 5, 2013
+                  span
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star-half-o
+                a(href='')
+                  img(src='../themes/font-end/assets/images/blog/blog-one.jpg', alt='')
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                a.btn.btn-primary(href='') Read More
+              .single-blog-post
+                h3 Girls Pink T Shirt arrived in store
+                .post-meta
+                  ul
+                    li
+                      i.fa.fa-user
+                      |  Mac Doe
+                    li
+                      i.fa.fa-clock-o
+                      |  1:33 pm
+                    li
+                      i.fa.fa-calendar
+                      |  DEC 5, 2013
+                  span
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star-half-o
+                a(href='')
+                  img(src='../themes/font-end/assets/images/blog/blog-two.jpg', alt='')
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                a.btn.btn-primary(href='') Read More
+              .single-blog-post
+                h3 Girls Pink T Shirt arrived in store
+                .post-meta
+                  ul
+                    li
+                      i.fa.fa-user
+                      |  Mac Doe
+                    li
+                      i.fa.fa-clock-o
+                      |  1:33 pm
+                    li
+                      i.fa.fa-calendar
+                      |  DEC 5, 2013
+                  span
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star-half-o
+                a(href='')
+                  img(src='../themes/font-end/assets/images/blog/blog-three.jpg', alt='')
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                a.btn.btn-primary(href='') Read More
+              .pagination-area
+                ul.pagination
+                  li
+                    a.active(href='') 1
+                  li
+                    a(href='') 2
+                  li
+                    a(href='') 3
+                  li
+                    a(href='')
+                      i.fa.fa-angle-double-right
+    footer#footer
+      // Footer
+      .footer-top
+        .container
+          .row
+            .col-sm-2
+              .companyinfo
+                h2
+                  span e
+                  | -shopper
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor
+            .col-sm-7
+              .col-sm-3
+                .video-gallery.text-center
+                  a(href='#')
+                    .iframe-img
+                      img(src='../themes/font-end/assets/images/home/iframe1.png', alt='')
+                    .overlay-icon
+                      i.fa.fa-play-circle-o
+                  p Circle of Hands
+                  h2 24 DEC 2014
+              .col-sm-3
+                .video-gallery.text-center
+                  a(href='#')
+                    .iframe-img
+                      img(src='../themes/font-end/assets/images/home/iframe2.png', alt='')
+                    .overlay-icon
+                      i.fa.fa-play-circle-o
+                  p Circle of Hands
+                  h2 24 DEC 2014
+              .col-sm-3
+                .video-gallery.text-center
+                  a(href='#')
+                    .iframe-img
+                      img(src='../themes/font-end/assets/images/home/iframe3.png', alt='')
+                    .overlay-icon
+                      i.fa.fa-play-circle-o
+                  p Circle of Hands
+                  h2 24 DEC 2014
+              .col-sm-3
+                .video-gallery.text-center
+                  a(href='#')
+                    .iframe-img
+                      img(src='../themes/font-end/assets/images/home/iframe4.png', alt='')
+                    .overlay-icon
+                      i.fa.fa-play-circle-o
+                  p Circle of Hands
+                  h2 24 DEC 2014
+            .col-sm-3
+              .address
+                img(src='../themes/font-end/assets/images/home/map.png', alt='')
+                p 505 S Atlantic Ave Virginia Beach, VA(Virginia)
+      .footer-widget
+        .container
+          .row
+            .col-sm-2
+              .single-widget
+                h2 Service
+                ul.nav.nav-pills.nav-stacked
+                  li
+                    a(href='') Online Help
+                  li
+                    a(href='') Contact Us
+                  li
+                    a(href='') Order Status
+                  li
+                    a(href='') Change Location
+                  li
+                    a(href='') FAQ’s
+            .col-sm-2
+              .single-widget
+                h2 Quock Shop
+                ul.nav.nav-pills.nav-stacked
+                  li
+                    a(href='') T-Shirt
+                  li
+                    a(href='') Mens
+                  li
+                    a(href='') Womens
+                  li
+                    a(href='') Gift Cards
+                  li
+                    a(href='') Shoes
+            .col-sm-2
+              .single-widget
+                h2 Policies
+                ul.nav.nav-pills.nav-stacked
+                  li
+                    a(href='') Terms of Use
+                  li
+                    a(href='') Privecy Policy
+                  li
+                    a(href='') Refund Policy
+                  li
+                    a(href='') Billing System
+                  li
+                    a(href='') Ticket System
+            .col-sm-2
+              .single-widget
+                h2 About Shopper
+                ul.nav.nav-pills.nav-stacked
+                  li
+                    a(href='') Company Information
+                  li
+                    a(href='') Careers
+                  li
+                    a(href='') Store Location
+                  li
+                    a(href='') Affillate Program
+                  li
+                    a(href='') Copyright
+            .col-sm-3.col-sm-offset-1
+              .single-widget
+                h2 About Shopper
+                form.searchform(action='#')
+                  input(type='text', placeholder='Your email address')
+                  button.btn.btn-default(type='submit')
+                    i.fa.fa-arrow-circle-o-right
+                  p
+                    | Get the most recent updates from
+                    br
+                    | our site and be updated your self...
+      .footer-bottom
+        .container
+          .row
+            p.pull-left Copyright © 2013 E-SHOPPER Inc. All rights reserved.
+            p.pull-right
+              | Designed by
+              span
+                a(target='_blank', href='http://www.themeum.com') Themeum
+    // /Footer
+    script(src='../themes/font-end/assets/js/jquery.js')
+    script(src='../themes/font-end/assets/js/price-range.js')
+    script(src='../themes/font-end/assets/js/jquery.scrollUp.min.js')
+    script(src='../themes/font-end/assets/js/bootstrap.min.js')
+    script(src='../themes/font-end/assets/js/jquery.prettyPhoto.js')
+    script(src='../themes/font-end/assets/js/main.js')
