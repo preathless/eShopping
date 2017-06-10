@@ -5,21 +5,25 @@
  * Written by luc <luc@ltv.vn> on Jan 24, 2017
  */
 
+// Environment
 const ENV = {
   DEV: 'development',
   PROD: 'production',
   TEST: 'test'
 };
 
-const PORT = 3000;
+// Port
+const PORT = 3001;
 const TEST_PORT = 8000;
 
+// Routes
 const ROUTES = {
   ROOT:     '/',
-  LOGIN:    '/login',
+  SIGNIN:   '/signin',
+  SIGNOUT:  '/signout',
+  SIGNUP:   '/signup',
   HOME:     '/home',
   INDEX:    '/index',
-  LOGOUT:   '/logout',
   CONTACT:  '/contact',
   SHOP:     '/shop',
   PROD:     '/prod',
@@ -27,12 +31,17 @@ const ROUTES = {
   CART:     '/cart',
   404:      '/404',
   BLOG:     '/blog',
-  BLOGSG:   '/blogsg'
+  BLOGSG:   '/blogsingle'
 };
 
+// DB Connection String
+const CONNECTION_STR = 'mongodb://localhost:27017/eShopping';
+
+// Export Module
 module.exports = {
   ENV,
   PORT,
   TEST_PORT,
   ROUTES,
+  CONNECTION_STR
 }

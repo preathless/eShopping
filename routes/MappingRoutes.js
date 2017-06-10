@@ -10,7 +10,20 @@ const homeController = require('../controllers/HomeController');
 const authController = require('../controllers/AuthController');
 const interfaceController = require('../controllers/InterfaceController');
 
-const {ROOT, LOGIN, HOME, INDEX, LOGOUT, CONTACT, SHOP, PROD, CHECKOUT, CART, BLOG, BLOGSG} = require('../configs/constants').ROUTES;
+const { ROOT,
+        SIGNIN, 
+        SIGNOUT, 
+        SIGNUP, 
+        HOME, 
+        INDEX, 
+        CONTACT, 
+        SHOP, 
+        PROD, 
+        CHECKOUT, 
+        CART, 
+        BLOG, 
+        BLOGSG
+      } = require('../configs/constants').ROUTES;
 
 /**
  * API keys and Passport configuration.
@@ -23,10 +36,11 @@ router.get(ROOT, homeController.getIndex);
 router.get(HOME, homeController.getIndex);
 router.get(INDEX, homeController.getIndex);
 
-// Login-Logout
-router.get(LOGIN, authController.getLogin);
-router.post(LOGIN, authController.postLogin);
-// router.get(SIGN_OUT, authController.signOut);
+// Authentication
+router.get(SIGNIN, authController.getSignIn);
+router.post(SIGNIN, authController.postSignIn);
+router.get(SIGNOUT, authController.signOut);
+router.post(SIGNUP, authController.signUp);
 
 
 // Contact
