@@ -8,6 +8,7 @@ const async = require('async');
 const crypto = require('crypto');
 const passport = require('passport');
 const User = require('../models/User');
+const authService = require('../services/AuthService');
 const { ROOT, SIGNIN } = require('../configs/constants').ROUTES;
 
 /**
@@ -57,6 +58,7 @@ const postSignIn = (req, res, next) => {
   })(req, res, next);
 };
 
+
 /**
  * GET /signOut
  * Sign out.
@@ -79,9 +81,34 @@ const getSignup = (req, res) => {
   });
 };
 
+const signUp = (req, res) => {
+  // Get user information
+  const username = req.body.username;
+  const email = req.body.email;
+  const password = req.body.password;
+  
+  // Create user instance
+  const usrInfo = {
+    username,
+    email,
+    password,
+  };
+  
+  // Call serivce to create
+  authService.createNewUser(usrInfo)
+    .then((user) => {
+      res.redirect(ROOT);
+    })
+    .catch((error) => {
+      console.log(`Error: `, error.message);
+      res.render('login');
+    })
+};
+
 module.exports = {
   getSignIn,
   postSignIn,
   getSignup,
-  signOut
+  signOut,
+  signUp
 };

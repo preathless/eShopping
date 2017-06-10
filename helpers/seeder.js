@@ -31,6 +31,8 @@ const createUsers = () => {
     User.create([admin], (error) => {
       if (!error) {
         console.log('The first user were created successfully!');
+      } else {
+        console.log('Create user failed.')
       }
     });
   });
