@@ -31,7 +31,9 @@ const ROUTES = {
   CART:     '/cart',
   404:      '/404',
   BLOG:     '/blog',
-  BLOGSG:   '/blogsingle'
+  BLOGSG:   '/blogsingle',
+  // ADMIN
+  DASHBOARD: '/dashboard'
 };
 
 // DB Connection String

@@ -6,9 +6,9 @@
  */
 const express = require('express');
 const router = express.Router();
-const homeController = require('../controllers/HomeController');
-const authController = require('../controllers/AuthController');
-const interfaceController = require('../controllers/InterfaceController');
+const homeCtrl = require('../controllers/HomeController');
+const authCtrl = require('../controllers/AuthController');
+const interfaceCtrl = require('../controllers/InterfaceController');
 
 const { ROOT,
         SIGNIN, 
@@ -22,36 +22,40 @@ const { ROOT,
         CHECKOUT, 
         CART, 
         BLOG, 
-        BLOGSG
+        BLOGSG,
+        DASHBOARD
       } = require('../configs/constants').ROUTES;
 
 /**
  * API keys and Passport configuration.
  */
-// const passportConfig = require('../configs/passport');
-// const RequireAuthenticated = passportConfig.isAuthenticated;
+const passportConfig = require('../configs/passport');
+const RequireAuthenticated = passportConfig.isAuthenticated;
 
 // Home Page
-router.get(ROOT, homeController.getIndex);
-router.get(HOME, homeController.getIndex);
-router.get(INDEX, homeController.getIndex);
+router.get(ROOT, homeCtrl.getIndex);
+router.get(HOME, homeCtrl.getIndex);
+router.get(INDEX, homeCtrl.getIndex);
 
 // Authentication
-router.get(SIGNIN, authController.getSignIn);
-router.post(SIGNIN, authController.postSignIn);
-router.get(SIGNOUT, authController.signOut);
-router.post(SIGNUP, authController.signUp);
+router.get(SIGNIN, authCtrl.getSignIn);
+router.post(SIGNIN, authCtrl.postSignIn);
+router.get(SIGNOUT, authCtrl.signOut);
+router.post(SIGNUP, authCtrl.signUp);
 
 
 // Contact
-router.get(CONTACT, interfaceController.getContact);
+router.get(CONTACT, interfaceCtrl.getContact);
 
 // Cart
-router.get(CART, interfaceController.getCart);
+router.get(CART, interfaceCtrl.getCart);
 
 // Shop
-router.get(SHOP, interfaceController.getShop);
-router.get(PROD, interfaceController.getProductDetails);
-router.get(CHECKOUT, interfaceController.getCheckout);
+router.get(SHOP, interfaceCtrl.getShop);
+router.get(PROD, interfaceCtrl.getProductDetails);
+router.get(CHECKOUT, interfaceCtrl.getCheckout);
+
+// Dashboard
+router.get(DASHBOARD, interfaceCtrl.getDashboard);
 
 module.exports = router;

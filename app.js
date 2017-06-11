@@ -1,15 +1,18 @@
 // Required Lib
 const express = require('express');
 const session = require('express-session');
+const expressValidator = require('express-validator');
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const mongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo')(session);
 const router = require('./routes/MappingRoutes');
 const seeder = require('./helpers/seeder');
 const chalk = require('chalk');
 const appPort = require('./configs/constants').PORT;
 const connStr = require('./configs/constants').CONNECTION_STR;
+const passport = require('passport');
+const flash = require('express-flash');
 
 // Variable
 const app = express();
@@ -19,21 +22,72 @@ app.set('port', appPort);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+// Passport
+app.use(session({
+  resave: true,
+  saveUninitialized: true,
+  secret: 'X9Asjkls078a8790aldsf7lkaw2',
+  store: new MongoStore({
+    url: connStr,
+    autoReconnect: true
+  })
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+// Express Validator
+app.use(expressValidator({
+  customValidators: {
+    isArray: function (value) {
+      return Array.isArray(value);
+    },
+  },
+}));
+
+const User = require('./models/User');
+const LocalStrategy = require('passport-local').Strategy;
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => {
+    done(err, user);
+  });
+});
+
+/**
+ * Sign in using Email and Password.
+ * SAu khi require file nay xong, cho nay duoc set cho passport. :) Con hoi nay chua set nen moi ko thay LocalStrategy. =)) OK?Xong roi, dau thay cai passportConfig xai o day dau
+ */
+passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+  User.findOne({email: email.toLowerCase()}, (err, user) => {
+    if (err) {
+      return done(err);
+    }
+    if (!user) {
+      return done(null, false, { msg: `Email ${email} not found.` });
+    }
+    user.comparePassword(password, (err, isMatch) => {
+      if (err) {
+        return done(err);
+      }
+      if (isMatch) {
+        return done(null, user);
+      }
+      return done(null, false, {msg: 'Invalid email or password.'});
+    });
+  });
+}));
+
+// tuc la chi can cai doan day thoi. hieu ko?? OK =))// Ma a dua vao file passport.js cho no gon. Ok? :D// A ko goi ra o app.js ma goi ra o routes.js ok? ok
+
 // parse application/x-www-form-urlencoded 
 app.use(bodyParser.urlencoded({ extended: false }));
  
 // parse application/json 
 app.use(bodyParser.json());
-
-// app.post('/signup', function(req, res) {
-//     var username = req.body.username;
-//     res.send(req.body);
-//     res.send('<h1>Hello</h1> '+ username);
-// });
-
-// app.get('/signin', function(req, res) {
-//     res.render('login');
-// });
 
 /**
  * Connect to MongoDB.

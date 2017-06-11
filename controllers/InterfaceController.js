@@ -18,10 +18,16 @@ const getCheckout = (req, res) => {
   res.render('checkout', {title: ''});
 };
 
+// ADMIN
+const getDashboard = (req, res) => {
+  res.render('back-end/dashboard', {title: 'Dashboard'});
+}
+
 module.exports = {
   getCart,
   getShop,
   getProductDetails,
   getContact,
-  getCheckout
+  getCheckout,
+  getDashboard
 }
