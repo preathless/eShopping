@@ -7,9 +7,9 @@ block content
           .login-form
             // login form
             h2 Login to your account
-            form(action='#')
-              input(type='text', placeholder='Name')
-              input(type='email', placeholder='Email Address')
+            form(action="/signin" method="post")
+              input(type='email', placeholder='Email Address', name="email")
+              input(type='password', placeholder='Password', name="password")
               span
                 input.checkbox(type='checkbox')
                 | Keep me signed in
@@ -22,7 +22,7 @@ block content
             // sign up form
             h2 New User Signup!
             form(action="/signup", method="post")
-              input#username(type='text', placeholder='Name', value="dung", text="asd", name="username")
-              input(type='email', placeholder='Email Address', value="dung@gmail.com",  name="email")
-              input(type='password', placeholder='Password', value="dung", name="password")
+              input#username(type='text', placeholder='Name', name="username")
+              input(type='email', placeholder='Email Address', name="email")
+              input(type='password', placeholder='Password', name="password")
               button.btn.btn-default(type='submit') Signup

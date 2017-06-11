@@ -5,7 +5,7 @@ const getCategories = () => {
 };
 
 const getUsers = () => {
-    return User.find({name: 'dung'});
+    return User.find({});
 };
 
 module.exports = {
