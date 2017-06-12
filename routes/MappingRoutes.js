@@ -11,19 +11,24 @@ const authCtrl = require('../controllers/AuthController');
 const interfaceCtrl = require('../controllers/InterfaceController');
 
 const { ROOT,
-        SIGNIN, 
-        SIGNOUT, 
-        SIGNUP, 
-        HOME, 
-        INDEX, 
-        CONTACT, 
-        SHOP, 
-        PROD, 
-        CHECKOUT, 
-        CART, 
-        BLOG, 
+        SIGNIN,
+        SIGNOUT,
+        SIGNUP,
+        HOME,
+        INDEX,
+        CONTACT,
+        SHOP,
+        PROD,
+        CHECKOUT,
+        CART,
+        BLOG,
         BLOGSG,
-        DASHBOARD
+        DASHBOARD,
+        USER,
+        TABLE,
+        ICONS,
+        MAPS,
+        TYPOGRAPHY
       } = require('../configs/constants').ROUTES;
 
 /**
@@ -57,5 +62,10 @@ router.get(CHECKOUT, interfaceCtrl.getCheckout);
 
 // Dashboard
 router.get(DASHBOARD, interfaceCtrl.getDashboard);
+router.get(USER, interfaceCtrl.getUser);
+router.get(MAPS, interfaceCtrl.getMaps);
+router.get(ICONS, interfaceCtrl.getIcons);
+router.get(TABLE, interfaceCtrl.getTable);
+router.get(TYPOGRAPHY, interfaceCtrl.getTypography);
 
 module.exports = router;
