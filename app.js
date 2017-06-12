@@ -44,49 +44,10 @@ app.use(expressValidator({
   },
 }));
 
-const User = require('./models/User');
-const LocalStrategy = require('passport-local').Strategy;
-
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
-
-passport.deserializeUser((id, done) => {
-  User.findById(id, (err, user) => {
-    done(err, user);
-  });
-});
-
-/**
- * Sign in using Email and Password.
- * SAu khi require file nay xong, cho nay duoc set cho passport. :) Con hoi nay chua set nen moi ko thay LocalStrategy. =)) OK?Xong roi, dau thay cai passportConfig xai o day dau
- */
-passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-  User.findOne({email: email.toLowerCase()}, (err, user) => {
-    if (err) {
-      return done(err);
-    }
-    if (!user) {
-      return done(null, false, { msg: `Email ${email} not found.` });
-    }
-    user.comparePassword(password, (err, isMatch) => {
-      if (err) {
-        return done(err);
-      }
-      if (isMatch) {
-        return done(null, user);
-      }
-      return done(null, false, {msg: 'Invalid email or password.'});
-    });
-  });
-}));
-
-// tuc la chi can cai doan day thoi. hieu ko?? OK =))// Ma a dua vao file passport.js cho no gon. Ok? :D// A ko goi ra o app.js ma goi ra o routes.js ok? ok
-
-// parse application/x-www-form-urlencoded 
+// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
- 
-// parse application/json 
+
+// parse application/json
 app.use(bodyParser.json());
 
 /**
