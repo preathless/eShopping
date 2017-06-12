@@ -33,7 +33,12 @@ const ROUTES = {
   BLOG:     '/blog',
   BLOGSG:   '/blogsingle',
   // ADMIN
-  DASHBOARD: '/dashboard'
+  DASHBOARD: '/dashboard',
+  USER:      '/user',
+  TABLE:     '/table',
+  TYPOGRAPHY:'/typography',
+  ICONS:     '/icons',
+  MAPS:      '/maps'
 };
 
 // DB Connection String

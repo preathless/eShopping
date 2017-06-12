@@ -22,6 +22,21 @@ const getCheckout = (req, res) => {
 const getDashboard = (req, res) => {
   res.render('back-end/dashboard', {title: 'Dashboard'});
 }
+const getUser = (req, res) => {
+  res.render('back-end/user', {title: 'User'});
+}
+const getIcons = (req, res) => {
+  res.render('back-end/icons', {title: 'Icons'});
+}
+const getMaps = (req, res) => {
+  res.render('back-end/maps', {title: 'Maps'});
+}
+const getTable = (req, res) => {
+  res.render('back-end/table', {title: 'Table'});
+}
+const getTypography = (req, res) => {
+  res.render('back-end/typography', {title: 'Typography'});
+}
 
 module.exports = {
   getCart,
@@ -29,5 +44,10 @@ module.exports = {
   getProductDetails,
   getContact,
   getCheckout,
-  getDashboard
+  getDashboard,
+  getUser,
+  getIcons,
+  getMaps,
+  getTable,
+  getTypography
 }
