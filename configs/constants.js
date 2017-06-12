@@ -38,7 +38,8 @@ const ROUTES = {
   TABLE:     '/table',
   TYPOGRAPHY:'/typography',
   ICONS:     '/icons',
-  MAPS:      '/maps'
+  MAPS:      '/maps',
+  CATE:      '/cate'
 };
 
 // DB Connection String

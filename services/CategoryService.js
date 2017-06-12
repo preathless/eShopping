@@ -1,14 +1,17 @@
-const User = require('../models/User');
+const Cate = require('../models/Category');
 
 const getCategories = () => {
-    return User.find({});
+    return Cate.find({});
 };
 
-const getUsers = () => {
-    return User.find({});
+const createCategory = (cateInfo) => {
+    cateInfo.activeFlag = true;
+    cateInfo.deleteFlag = false;
+    // Return promise
+    return Cate.create(cateInfo); 
 };
 
 module.exports = {
     getCategories,
-    getUsers,
+    createCategory
 };
