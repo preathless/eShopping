@@ -28,7 +28,8 @@ const { ROOT,
         TABLE,
         ICONS,
         MAPS,
-        TYPOGRAPHY
+        TYPOGRAPHY,
+        CATE
       } = require('../configs/constants').ROUTES;
 
 /**
@@ -67,5 +68,12 @@ router.get(MAPS, interfaceCtrl.getMaps);
 router.get(ICONS, interfaceCtrl.getIcons);
 router.get(TABLE, interfaceCtrl.getTable);
 router.get(TYPOGRAPHY, interfaceCtrl.getTypography);
+router.get(CATE,interfaceCtrl.getCategory);
+router.post('/createCate', interfaceCtrl.createCategory)
+
+// Kit
+router.get('/kit', (req, res) => {
+  res.render('back-end-kit/login-page')
+});
 
 module.exports = router;

@@ -1,3 +1,5 @@
+const cateService = require('../services/CategoryService');
+
 const getCart = (req, res) => {
   res.render('cart', {title: ''});
 };
@@ -37,6 +39,39 @@ const getTable = (req, res) => {
 const getTypography = (req, res) => {
   res.render('back-end/typography', {title: 'Typography'});
 }
+const getCategory = (req, res) => {
+  Promise.all([cateService.getCategories()])
+    .then((data) => {
+      let categories = data[0];
+      res.render('back-end/category-mngt', {categories});
+    })
+    .catch((err) => {
+      next(err);
+    })
+}
+
+const createCategory = (req, res) => {
+  let cateId = req.body.cateid;
+  let cateNm = req.body.catenm;
+  let catePrnt = req.body.cateprnt;
+
+  // Create user instance
+  const cateInfo = {
+    cateId,
+    cateNm,
+    catePrnt,
+  };
+  
+  // Call serivce to create
+  cateService.createCategory(cateInfo)
+    .then((cate) => {
+      getCategory();
+    })
+    .catch((error) => {
+      console.log(`Error: `, error.message);
+      res.redirect('/dashboard');
+    })
+};
 
 module.exports = {
   getCart,
@@ -49,5 +84,7 @@ module.exports = {
   getIcons,
   getMaps,
   getTable,
-  getTypography
+  getTypography,
+  getCategory,
+  createCategory
 }

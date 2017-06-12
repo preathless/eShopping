@@ -41,9 +41,9 @@ block content
                 #mens.panel-collapse.collapse
                   .panel-body
                     ul
-                      //- each u in users
-                      //-   li
-                      //-     a(href="#")= u.username
+                      each cItem in categories
+                        li
+                          a(href="#")= cItem.cateNm
               .panel.panel-default
                 .panel-heading
                   h4.panel-title
