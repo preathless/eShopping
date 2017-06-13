@@ -72,8 +72,8 @@ router.get(CATE,interfaceCtrl.getCategory);
 router.post('/createCate', interfaceCtrl.createCategory)
 
 // Kit
-router.get('/kit', (req, res) => {
-  res.render('back-end-kit/login-page')
+router.get('/main', (req, res) => {
+  res.render('index')
 });
 
 module.exports = router;

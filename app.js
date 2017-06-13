@@ -13,14 +13,16 @@ const appPort = require('./configs/constants').PORT;
 const connStr = require('./configs/constants').CONNECTION_STR;
 const passport = require('passport');
 const flash = require('express-flash');
+const cons = require('consolidate');
 
 // Variable
 const app = express();
 
 // Init
 app.set('port', appPort);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.engine('html', cons.swig);
+app.set('views', path.join(__dirname, 'views/template'));
+app.set('view engine', 'html');
 
 // Passport
 app.use(session({
@@ -69,7 +71,7 @@ mongoose.connect(connStr, (error) => {
 /**
  * Serve static files
  */
-app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
+app.use(express.static(path.join(__dirname, 'global/'), { maxAge: 31557600000 }));
 
 // /**
 //  * App routes
@@ -79,9 +81,9 @@ app.use('/', router);
 /**
  * 404
  */
-app.use((req, res, next) => {
-  res.status(404).render('404');
-});
+// app.use((req, res, next) => {
+//   res.status(404).render('404');
+// });
 
 app.listen(appPort, () => {
   console.log(`App is running at port: ${appPort}`);
