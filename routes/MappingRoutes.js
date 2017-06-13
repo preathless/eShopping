@@ -70,6 +70,9 @@ router.get(TABLE, interfaceCtrl.getTable);
 router.get(TYPOGRAPHY, interfaceCtrl.getTypography);
 router.get(CATE,interfaceCtrl.getCategory);
 router.post('/createCate', interfaceCtrl.createCategory)
+router.get('/notifications', (req, res) => {
+  res.render('back-end/notifications');
+})
 
 // Kit
 router.get('/kit', (req, res) => {

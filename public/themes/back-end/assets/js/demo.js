@@ -130,7 +130,7 @@ demo = {
         marker.setMap(map);
     },
 
-	showNotification: function(from, align){
+	showNotificationshowNotification: function(from, align){
     	color = Math.floor((Math.random() * 4) + 1);
 
     	$.notify({
