@@ -81,9 +81,9 @@ app.use('/', router);
 /**
  * 404
  */
-// app.use((req, res, next) => {
-//   res.status(404).render('404');
-// });
+app.use((req, res, next) => {
+  res.status(404).render('backend/errors/error-404');
+});
 
 app.listen(appPort, () => {
   console.log(`App is running at port: ${appPort}`);

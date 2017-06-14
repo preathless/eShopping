@@ -1,5 +1,4 @@
 const cateService = require('../services/CategoryService');
-const demo = require('../public/themes/back-end/assets/js/demo');
 
 const getCart = (req, res) => {
   res.render('cart', {title: ''});
