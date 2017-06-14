@@ -7,12 +7,16 @@
 const express = require('express');
 const request = require('request');
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const _ = require('lodash');
-
+const lodash = require('lodash');
 const User = require('../models/User');
+const LocalStrategy = require('passport-local').Strategy;
 
-const secretOrKey = 'X9Asjkls078a8790aldsf7lkaw2';
+const secretOrKey = '';
+
+const {
+        ROOT, 
+        LOGIN
+      } = require('../configs/constants').ROUTES;
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -54,7 +58,7 @@ exports.isAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
-  res.redirect('/signin');
+  res.redirect(LOGIN);
 };
 
 /**
@@ -62,10 +66,9 @@ exports.isAuthenticated = (req, res, next) => {
  */
 exports.isAuthorized = (req, res, next) => {
   const provider = req.path.split('/').slice(-1)[0];
-
-  if (_.find(req.user.tokens, { kind: provider })) {
+  if (lodash.find(req.user.tokens, { kind: provider })) {
     next();
   } else {
-    res.redirect(`/auth/${provider}`);
+    res.redirect('/backend/authenticate/${provider}');
   }
 };

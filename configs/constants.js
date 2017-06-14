@@ -19,6 +19,7 @@ const TEST_PORT = 8000;
 // Routes
 const ROUTES = {
   ROOT:     '/',
+  // Front-End
   SIGNIN:   '/signin',
   SIGNOUT:  '/signout',
   SIGNUP:   '/signup',
@@ -32,14 +33,19 @@ const ROUTES = {
   404:      '/404',
   BLOG:     '/blog',
   BLOGSG:   '/blogsingle',
-  // ADMIN
-  DASHBOARD: '/dashboard',
-  USER:      '/user',
-  TABLE:     '/table',
-  TYPOGRAPHY:'/typography',
-  ICONS:     '/icons',
-  MAPS:      '/maps',
-  CATE:      '/cate'
+  // Back-End
+  DASHBOARD:    '/dashboard',
+  REGISTER:     '/register',
+  FORGOT:       '/forgot',
+  ERROR404:     '/404',
+  LOGIN:        '/login'
+};
+
+const RENDER = {
+  _DASHBOARD:   'backend/index',
+  _LOGIN:       'backend/authenticate/login',
+  _REGISTER:    'backend/authenticate/register',
+  _FORGOT:      'backend/authenticate/forgot-password'
 };
 
 // DB Connection String
@@ -51,5 +57,6 @@ module.exports = {
   PORT,
   TEST_PORT,
   ROUTES,
+  RENDER,
   CONNECTION_STR
 }
