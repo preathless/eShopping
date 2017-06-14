@@ -61,11 +61,12 @@ const createCategory = (req, res) => {
     cateNm,
     catePrnt,
   };
-  
+
   // Call serivce to create
   cateService.createCategory(cateInfo)
     .then((cate) => {
-      getCategory();
+      // showNotification('top','left');
+      res.render('back-end/dashboard');
     })
     .catch((error) => {
       console.log(`Error: `, error.message);

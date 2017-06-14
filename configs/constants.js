@@ -13,7 +13,7 @@ const ENV = {
 };
 
 // Port
-const PORT = 3001;
+const PORT = 3000;
 const TEST_PORT = 8000;
 
 // Routes

@@ -86,14 +86,14 @@ const signUp = (req, res) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
-  
+
   // Create user instance
   const usrInfo = {
     username,
     email,
     password,
   };
-  
+
   // Call serivce to create
   authService.createNewUser(usrInfo)
     .then((user) => {

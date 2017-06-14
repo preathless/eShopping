@@ -8,7 +8,7 @@ const express = require('express');
 const router = express.Router();
 const homeCtrl = require('../controllers/HomeController');
 const authCtrl = require('../controllers/AuthController');
-const interfaceCtrl = require('../controllers/InterfaceController');
+const iCrtl = require('../controllers/InterfaceController');
 
 const { ROOT,
         SIGNIN,
@@ -51,29 +51,45 @@ router.post(SIGNUP, authCtrl.signUp);
 
 
 // Contact
-router.get(CONTACT, interfaceCtrl.getContact);
+router.get(CONTACT, iCrtl.getContact);
 
 // Cart
-router.get(CART, interfaceCtrl.getCart);
+router.get(CART, iCrtl.getCart);
 
 // Shop
-router.get(SHOP, interfaceCtrl.getShop);
-router.get(PROD, interfaceCtrl.getProductDetails);
-router.get(CHECKOUT, interfaceCtrl.getCheckout);
+router.get(SHOP, iCrtl.getShop);
+router.get(PROD, iCrtl.getProductDetails);
+router.get(CHECKOUT, iCrtl.getCheckout);
 
 // Dashboard
-router.get(DASHBOARD, interfaceCtrl.getDashboard);
-router.get(USER, interfaceCtrl.getUser);
-router.get(MAPS, interfaceCtrl.getMaps);
-router.get(ICONS, interfaceCtrl.getIcons);
-router.get(TABLE, interfaceCtrl.getTable);
-router.get(TYPOGRAPHY, interfaceCtrl.getTypography);
-router.get(CATE,interfaceCtrl.getCategory);
-router.post('/createCate', interfaceCtrl.createCategory)
+router.get(DASHBOARD, iCrtl.getDashboard);
+router.get(USER, iCrtl.getUser);
+router.get(MAPS, iCrtl.getMaps);
+router.get(ICONS, iCrtl.getIcons);
+router.get(TABLE, iCrtl.getTable);
+router.get(TYPOGRAPHY, iCrtl.getTypography);
+router.get(CATE,iCrtl.getCategory);
+router.post('/createCate', iCrtl.createCategory)
 
 // Kit
 router.get('/main', (req, res) => {
-  res.render('index')
+  res.render('backend')
+});
+
+router.get('/login', (req, res) => {
+  res.render('backend/authenticate/login')
+});
+
+router.get('/register', (req, res) => {
+  res.render('backend/authenticate/register')
+});
+
+router.get('/forgot', (req, res) => {
+  res.render('backend/authenticate/forgot-password')
+});
+
+router.get('/404', (req, res) => {
+  res.render('backend/errors/error-404')
 });
 
 module.exports = router;
