@@ -1,4 +1,5 @@
 const cateService = require('../services/CategoryService');
+const demo = require('../public/themes/back-end/assets/js/demo');
 
 const getCart = (req, res) => {
   res.render('cart', {title: ''});
@@ -61,11 +62,12 @@ const createCategory = (req, res) => {
     cateNm,
     catePrnt,
   };
-  
+
   // Call serivce to create
   cateService.createCategory(cateInfo)
     .then((cate) => {
-      getCategory();
+      // showNotification('top','left');
+      res.render('back-end/dashboard');
     })
     .catch((error) => {
       console.log(`Error: `, error.message);
