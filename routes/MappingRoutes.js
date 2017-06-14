@@ -10,7 +10,9 @@ const homeCtrl = require('../controllers/HomeController');
 const authCtrl = require('../controllers/AuthController');
 const iCrtl = require('../controllers/InterfaceController');
 
-const { ROOT,
+const {
+        // Front-End
+        ROOT,
         SIGNIN,
         SIGNOUT,
         SIGNUP,
@@ -23,73 +25,52 @@ const { ROOT,
         CART,
         BLOG,
         BLOGSG,
+        // Back-End
         DASHBOARD,
-        USER,
-        TABLE,
-        ICONS,
-        MAPS,
-        TYPOGRAPHY,
-        CATE
+        REGISTER,
+        FORGOT,
+        ERROR404,
+        LOGIN
       } = require('../configs/constants').ROUTES;
+
+const {_DASHBOARD} = require('../configs/constants').RENDER;
 
 /**
  * API keys and Passport configuration.
  */
 const passportConfig = require('../configs/passport');
-const RequireAuthenticated = passportConfig.isAuthenticated;
+// const requireAuthenticated = passportConfig.isAuthenticated;
 
 // Home Page
-router.get(ROOT, homeCtrl.getIndex);
-router.get(HOME, homeCtrl.getIndex);
-router.get(INDEX, homeCtrl.getIndex);
+// router.get(ROOT, homeCtrl.getIndex);
+// router.get(HOME, homeCtrl.getIndex);
+// router.get(INDEX, homeCtrl.getIndex);
 
 // Authentication
-router.get(SIGNIN, authCtrl.getSignIn);
+// router.get(SIGNIN, authCtrl.getSignIn);
 router.post(SIGNIN, authCtrl.postSignIn);
-router.get(SIGNOUT, authCtrl.signOut);
-router.post(SIGNUP, authCtrl.signUp);
+router.get(SIGNOUT, authCtrl.getSignOut);
+router.post(SIGNUP, authCtrl.postSignUp);
 
 
 // Contact
-router.get(CONTACT, iCrtl.getContact);
+// router.get(CONTACT, iCrtl.getContact);
 
 // Cart
-router.get(CART, iCrtl.getCart);
+// router.get(CART, iCrtl.getCart);
 
 // Shop
-router.get(SHOP, iCrtl.getShop);
-router.get(PROD, iCrtl.getProductDetails);
-router.get(CHECKOUT, iCrtl.getCheckout);
+// router.get(SHOP, iCrtl.getShop);
+// router.get(PROD, iCrtl.getProductDetails);
+// router.get(CHECKOUT, iCrtl.getCheckout);
 
-// Dashboard
-router.get(DASHBOARD, iCrtl.getDashboard);
-router.get(USER, iCrtl.getUser);
-router.get(MAPS, iCrtl.getMaps);
-router.get(ICONS, iCrtl.getIcons);
-router.get(TABLE, iCrtl.getTable);
-router.get(TYPOGRAPHY, iCrtl.getTypography);
-router.get(CATE,iCrtl.getCategory);
-router.post('/createCate', iCrtl.createCategory)
-
-// Kit
-router.get('/main', (req, res) => {
-  res.render('backend')
+// Back-End
+router.get(DASHBOARD, require('../configs/passport').isAuthenticated, (req, res) => {
+  res.render(_DASHBOARD);
 });
 
-router.get('/login', (req, res) => {
-  res.render('backend/authenticate/login')
-});
-
-router.get('/register', (req, res) => {
-  res.render('backend/authenticate/register')
-});
-
-router.get('/forgot', (req, res) => {
-  res.render('backend/authenticate/forgot-password')
-});
-
-router.get('/404', (req, res) => {
-  res.render('backend/errors/error-404')
-});
+router.get(LOGIN, authCtrl.getLogin);
+router.get(REGISTER, authCtrl.getRegister);
+router.get(FORGOT, authCtrl.getForgotPassword);
 
 module.exports = router;
