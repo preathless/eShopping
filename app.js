@@ -21,7 +21,7 @@ const app = express();
 // Init
 app.set('port', appPort);
 app.engine('html', cons.swig);
-app.set('views', path.join(__dirname, 'views/template'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 
 // Passport
@@ -71,7 +71,7 @@ mongoose.connect(connStr, (error) => {
 /**
  * Serve static files
  */
-app.use(express.static(path.join(__dirname, 'global/'), { maxAge: 31557600000 }));
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
 
 // /**
 //  * App routes

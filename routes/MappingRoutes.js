@@ -73,7 +73,7 @@ router.post('/createCate', interfaceCtrl.createCategory)
 
 // Kit
 router.get('/main', (req, res) => {
-  res.render('index')
+  res.render('backend/index')
 });
 
 module.exports = router;
