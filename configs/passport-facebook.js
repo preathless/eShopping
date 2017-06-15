@@ -50,8 +50,6 @@ function(token, refreshToken, profile, done) {
                 // If there is no user found with that Facebook ID, create them.
                 var newUser = new User();
                 // Generl Infomation
-                newUser.email = profile.emails[0].value;
-                newUser.name = profile.displayName;
                 // Set all of the facebook information in our user model.
                 newUser.facebook.id    = profile.id; // Set the users facebook id.
                 newUser.facebook.token = token; // We will save the token that facebook provides to the user.

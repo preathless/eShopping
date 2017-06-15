@@ -1,5 +1,19 @@
 extends ../layout-backend
 block content
-    .page
-        .page-content.container-fluid
-            p Content
+  .page
+    .page-header
+    .page-content.container-fluid
+      .row
+        .col-xxl-12
+          // Panel Basic
+          .panel
+            header.panel-heading
+              h3.panel-title Categires List
+            .panel-body
+              #exampleBasic
+
+  link(rel='stylesheet', href='themes/backend/assets/examples/css/tables/jsgrid.css');
+  link(rel='stylesheet', href='vendor/jsgrid/jsgrid.css');
+  script(src='themes/backend/assets/examples/js/tables/jsgrid-db.js');
+  script(src='themes/backend/assets/examples/js/tables/jsgrid.js');
+  script(src='vendor/jsgrid/jsgrid.js');

@@ -11,34 +11,34 @@ const Schema = mongoose.Schema;
 
 const userSchema = new mongoose.Schema({
 
-  email: {type: String, unique: true},
-  username: {type: String, unique: true},
-  password: String,
+  email:        {type: String, unique: true},
+  username:     {type: String, unique: true},
+  password:     {type: String},
 
   tokens: Array,
 
-  publish: {type: Boolean, default: true},
-  admin: {type: Boolean, default: false},
-  deleteFlag: {type: Boolean, default: false},
-  activeFlag: {type: Boolean, default: false},
+  publish:      {type: Boolean, default: true},
+  admin:        {type: Boolean, default: false},
+  deleteFlag:   {type: Boolean, default: false},
+  activeFlag:   {type: Boolean, default: false},
 
   profile: {
-    name: String,
-    gender: String,
-    phone: String,
+    name:     String,
+    gender:   String,
+    phone:    String,
     location: String,
-    website: String,
-    picture: String,
+    website:  String,
+    picture:  String,
   },
 
   facebook: {
-    id: String,
-    token: String,
-    email: String,
-    name: String
+    id:     String,
+    token:  String,
+    email:  String,
+    name:   String
   },
 
-  tickets: [{type: Schema.ObjectId, ref: 'Ticket' }]
+  tickets: [{type: Schema.ObjectId, ref: 'Ticket'}]
 }, {timestamps: true });
 
 /**

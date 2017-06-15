@@ -11,12 +11,13 @@ const Schema = mongoose.Schema;
 
 const cateSchema = new mongoose.Schema({
 
-  cateId: {type: String, unique: true},
-  cateNm: {type: String, unique: true},
-  catePrnt: {type: String},
+  cateId:       {type: String, unique: true},
+  cateNm:       {type: String},
+  cateLevel:    {type: String},
+  catePrnt:     {type: String},
 
-  deleteFlag: {type: Boolean, default: false},
-  activeFlag: {type: Boolean, default: false}
+  deleteFlag:   {type: Boolean, default: false},
+  activeFlag:   {type: Boolean, default: false}
   
 }, {timestamps: true });
 

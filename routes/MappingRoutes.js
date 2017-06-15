@@ -37,10 +37,11 @@ const {
         REGISTER,
         FORGOT,
         ERROR404,
-        LOGIN
+        LOGIN,
+        CATEGORIES
       } = require('../configs/constants').ROUTES;
 
-const {_DASHBOARD} = require('../configs/constants').RENDER;
+const {_DASHBOARD, _CATEGORIES} = require('../configs/constants').RENDER;
 
 // =====================================
 // FACEBOOK ROUTES =====================
@@ -86,13 +87,8 @@ router.get(LOGIN, authCtrl.getLogin);
 router.get(REGISTER, authCtrl.getRegister);
 router.get(FORGOT, authCtrl.getForgotPassword);
 
-// Layout
-router.get('/layout', (req, res) => {
-  res.render('backend/layout-backend')
-})
-
-router.get('/categories', (req, res) => {
-  res.render('backend/management/categories')
+router.get(CATEGORIES, (req, res) => {
+  res.render(_CATEGORIES);
 })
 
 module.exports = router;
