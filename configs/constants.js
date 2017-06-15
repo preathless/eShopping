@@ -34,6 +34,8 @@ const ROUTES = {
   BLOG:     '/blog',
   BLOGSG:   '/blogsingle',
   // Back-End
+  AUTH_FB:      '/auth/facebook',
+  AUTH_FB_CB:   '/auth/facebook/callback',
   DASHBOARD:    '/dashboard',
   REGISTER:     '/register',
   FORGOT:       '/forgot',

@@ -6,23 +6,26 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
-const router = require('./routes/MappingRoutes');
-const seeder = require('./helpers/seeder');
 const chalk = require('chalk');
-const appPort = require('./configs/constants').PORT;
-const connStr = require('./configs/constants').CONNECTION_STR;
 const passport = require('passport');
 const flash = require('express-flash');
 const cons = require('consolidate');
 
-// Variable
+const router = require('./routes/MappingRoutes');
+const seeder = require('./helpers/seeder');
+const appPort = require('./configs/constants').PORT;
+const connStr = require('./configs/constants').CONNECTION_STR;
+
+// Variables
 const app = express();
 
-// Init
+/**
+ * Initialize
+ */
 app.set('port', appPort);
-app.engine('html', cons.swig);
+// app.engine('html', cons.swig);
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'html');
+app.set('view engine', 'pug');
 
 // Passport
 app.use(session({
@@ -73,9 +76,9 @@ mongoose.connect(connStr, (error) => {
  */
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
 
-// /**
-//  * App routes
-//  */
+/**
+ * App routes
+ */
 app.use('/', router);
 
 /**
@@ -85,6 +88,9 @@ app.use((req, res, next) => {
   res.status(404).render('backend/errors/error-404');
 });
 
+/**
+ * Port Listener
+ */
 app.listen(appPort, () => {
   console.log(`App is running at port: ${appPort}`);
 });

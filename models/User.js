@@ -31,6 +31,13 @@ const userSchema = new mongoose.Schema({
     picture: String,
   },
 
+  facebook: {
+    id: String,
+    token: String,
+    email: String,
+    name: String
+  },
+
   tickets: [{type: Schema.ObjectId, ref: 'Ticket' }]
 }, {timestamps: true });
 

@@ -8,13 +8,15 @@ const express = require('express');
 const request = require('request');
 const passport = require('passport');
 const lodash = require('lodash');
-const User = require('../models/User');
-const LocalStrategy = require('passport-local').Strategy;
 
-const secretOrKey = '';
+const LocalStrategy = require('passport-local').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
+
+const configAuth = require('../configs/auth.js');
+const User = require('../models/User');
 
 const {
-        ROOT, 
+        ROOT,
         LOGIN
       } = require('../configs/constants').ROUTES;
 
