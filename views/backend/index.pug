@@ -1,789 +1,315 @@
-doctype html
-html.no-js.css-menubar(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui')
-    meta(name='description', content='bootstrap admin template')
-    meta(name='author', content='')
-    title  | Remark Admin Template
-    link(rel='apple-touch-icon', href='themes/backend/assets/apple-touch-icon.png')
-    link(rel='shortcut icon', href='themes/backend/assets/images/favicon.ico')
-    // Stylesheets
-    link(rel='stylesheet', href='assets-global/css/bootstrap.min.css')
-    link(rel='stylesheet', href='assets-global/css/bootstrap-extend.min.css')
-    link(rel='stylesheet', href='themes/backend/assets/css/site.min.css')
-    // Plugins
-    link(rel='stylesheet', href='vendor/animsition/animsition.css')
-    link(rel='stylesheet', href='vendor/asscrollable/asScrollable.css')
-    link(rel='stylesheet', href='vendor/switchery/switchery.css')
-    link(rel='stylesheet', href='vendor/intro-js/introjs.css')
-    link(rel='stylesheet', href='vendor/slidepanel/slidePanel.css')
-    link(rel='stylesheet', href='vendor/flag-icon-css/flag-icon.css')
-    link(rel='stylesheet', href='vendor/waves/waves.css')
-    link(rel='stylesheet', href='vendor/chartist/chartist.css')
-    link(rel='stylesheet', href='vendor/jvectormap/jquery-jvectormap.css')
-    link(rel='stylesheet', href='vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css')
-    link(rel='stylesheet', href='themes/backend/assets/examples/css/dashboard/v1.css')
-    // Fonts
-    link(rel='stylesheet', href='assets-global/fonts/material-design/material-design.min.css')
-    link(rel='stylesheet', href='assets-global/fonts/brand-icons/brand-icons.min.css')
-    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic')
-    //
-      if lt IE 9script(src='vendor/html5shiv/html5shiv.min.js')
-    //
-      if lt IE 10
-      script(src='vendor/media-match/media.match.min.js')
-      script(src='vendor/respond/respond.min.js')
-    // Scripts
-    script(src='vendor/breakpoints/breakpoints.js')
-    script.
-      Breakpoints();
-  body.animsition
-    //
-      if lt IE 8
-      p.browserupgrade
-      | You are using an
-      strong outdated
-      |  browser. Please
-      a(href='http://browsehappy.com/') upgrade your browser
-      |  to improve your experience.
-    nav.site-navbar.navbar.navbar-default.navbar-fixed-top.navbar-mega(role='navigation')
-      .navbar-header
-        button.navbar-toggler.hamburger.hamburger-close.navbar-toggler-left.hided(type='button', data-toggle='menubar')
-          span.sr-only Toggle navigation
-          span.hamburger-bar
-        button.navbar-toggler.collapsed(type='button', data-target='#site-navbar-collapse', data-toggle='collapse')
-          i.icon.md-more(aria-hidden='true')
-        .navbar-brand.navbar-brand-center.site-gridmenu-toggle(data-toggle='gridmenu')
-          img.navbar-brand-logo(src='themes/backend/assets/images/logo.png', title='Remark')
-          span.navbar-brand-text.hidden-xs-down Back End
-        button.navbar-toggler.collapsed(type='button', data-target='#site-navbar-search', data-toggle='collapse')
-          span.sr-only Toggle Search
-          i.icon.md-search(aria-hidden='true')
-      .navbar-container.container-fluid
-        // Navbar Collapse
-        #site-navbar-collapse.collapse.navbar-collapse.navbar-collapse-toolbar
-          // Navbar Toolbar
-          ul.nav.navbar-toolbar
-            li#toggleMenubar.nav-item.hidden-float
-              a.nav-link(data-toggle='menubar', href='#', role='button')
-                i.icon.hamburger.hamburger-arrow-left
-                  span.sr-only Toggle menubar
-                  span.hamburger-bar
-            li#toggleFullscreen.nav-item.hidden-sm-down
-              a.nav-link.icon.icon-fullscreen(data-toggle='fullscreen', href='#', role='button')
-                span.sr-only Toggle fullscreen
-            li.nav-item.dropdown.dropdown-fw.dropdown-mega
-              a.nav-link(data-toggle='dropdown', href='#', aria-expanded='false', data-animation='fade', role='button')
-                | Mega
-                i.icon.md-chevron-down(aria-hidden='true')
-              .dropdown-menu(role='menu')
-                .mega-content
-                  .row
-                    .col-md-4
-                      h5 UI Kit
-                      ul.blocks-2
-                        li.mega-menu.m-0
-                          ul.list-icons
-                            li
-                              i.md-chevron-right(aria-hidden='true')
-                              a(href='advanced/animation.html') Animation
-                            li
-                              i.md-chevron-right(aria-hidden='true')
-                              a(href='uikit/buttons.html') Buttons
-                            li
-                              i.md-chevron-right(aria-hidden='true')
-                              a(href='uikit/colors.html') Colors
-                            li
-                              i.md-chevron-right(aria-hidden='true')
-                              a(href='uikit/dropdowns.html') Dropdowns
-                            li
-                              i.md-chevron-right(aria-hidden='true')
-                              a(href='uikit/icons.html') Icons
-                            li
-                              i.md-chevron-right(aria-hidden='true')
-                              a(href='advanced/lightbox.html') Lightbox
-                        li.mega-menu.m-0
-                          ul.list-icons
-                            li
-                              i.md-chevron-right(aria-hidden='true')
-                              a(href='uikit/modals.html') Modals
-                            li
-                              i.md-chevron-right(aria-hidden='true')
-                              a(href='uikit/panel-structure.html') Panels
-                            li
-                              i.md-chevron-right(aria-hidden='true')
-                              a(href='structure/overlay.html') Overlay
-                            li
-                              i.md-chevron-right(aria-hidden='true')
-                              a(href='uikit/tooltip-popover.html ') Tooltips
-                            li
-                              i.md-chevron-right(aria-hidden='true')
-                              a(href='advanced/scrollable.html') Scrollable
-                            li
-                              i.md-chevron-right(aria-hidden='true')
-                              a(href='uikit/typography.html') Typography
-                    .col-md-4
-                      h5
-                        | Media
-                        span.badge.badge-pill.badge-success 4
-                      ul.blocks-3
-                        li
-                          a.thumbnail.m-0(href='javascript:void(0)')
-                            img.w-full(src='assets-global/photos/placeholder.png', alt='...')
-                        li
-                          a.thumbnail.m-0(href='javascript:void(0)')
-                            img.w-full(src='assets-global/photos/placeholder.png', alt='...')
-                        li
-                          a.thumbnail.m-0(href='javascript:void(0)')
-                            img.w-full(src='assets-global/photos/placeholder.png', alt='...')
-                        li
-                          a.thumbnail.m-0(href='javascript:void(0)')
-                            img.w-full(src='assets-global/photos/placeholder.png', alt='...')
-                        li
-                          a.thumbnail.m-0(href='javascript:void(0)')
-                            img.w-full(src='assets-global/photos/placeholder.png', alt='...')
-                        li
-                          a.thumbnail.m-0(href='javascript:void(0)')
-                            img.w-full(src='assets-global/photos/placeholder.png', alt='...')
-                    .col-md-4
-                      h5.mb-0 Accordion
-                      // Accordion
-                      #siteMegaAccordion.panel-group.panel-group-simple(aria-multiselectable='true', role='tablist')
-                        .panel
-                          #siteMegaAccordionHeadingOne.panel-heading(role='tab')
-                            a.panel-title(data-toggle='collapse', href='#siteMegaCollapseOne', data-parent='#siteMegaAccordion', aria-expanded='false', aria-controls='siteMegaCollapseOne') Collapsible Group Item #1
-                          #siteMegaCollapseOne.panel-collapse.collapse(aria-labelledby='siteMegaAccordionHeadingOne', role='tabpanel')
-                            .panel-body
-                              | De moveat laudatur vestra parum doloribus labitur sentire partes, eripuit praesenti
-                              | congressus ostendit alienae, voluptati ornateque accusamus
-                              | clamat reperietur convicia albucius.
-                        .panel
-                          #siteMegaAccordionHeadingTwo.panel-heading(role='tab')
-                            a.panel-title.collapsed(data-toggle='collapse', href='#siteMegaCollapseTwo', data-parent='#siteMegaAccordion', aria-expanded='false', aria-controls='siteMegaCollapseTwo') Collapsible Group Item #2
-                          #siteMegaCollapseTwo.panel-collapse.collapse(aria-labelledby='siteMegaAccordionHeadingTwo', role='tabpanel')
-                            .panel-body
-                              | Praestabiliorem. Pellat excruciant legantur ullum leniter vacare foris voluptate
-                              | loco ignavi, credo videretur multoque choro fatemur
-                              | mortis animus adoptionem, bello statuat expediunt naturales.
-                        .panel
-                          #siteMegaAccordionHeadingThree.panel-heading(role='tab')
-                            a.panel-title.collapsed(data-toggle='collapse', href='#siteMegaCollapseThree', data-parent='#siteMegaAccordion', aria-expanded='false', aria-controls='siteMegaCollapseThree') Collapsible Group Item #3
-                          #siteMegaCollapseThree.panel-collapse.collapse(aria-labelledby='siteMegaAccordionHeadingThree', role='tabpanel')
-                            .panel-body
-                              | Horum, antiquitate perciperet d conspectum locus obruamus animumque perspici probabis
-                              | suscipere. Desiderat magnum, contenta poena desiderant
-                              | concederetur menandri damna disputandum corporum.
-                      // End Accordion
-          // End Navbar Toolbar
-          // Navbar Toolbar Right
-          ul.nav.navbar-toolbar.navbar-right.navbar-toolbar-right
-            li.nav-item.dropdown
-              a.nav-link(data-toggle='dropdown', href='javascript:void(0)', data-animation='scale-up', aria-expanded='false', role='button')
-                span.flag-icon.flag-icon-us
-              .dropdown-menu(role='menu')
-                a.dropdown-item(href='javascript:void(0)', role='menuitem')
-                  span.flag-icon.flag-icon-gb
-                  |  English
-                a.dropdown-item(href='javascript:void(0)', role='menuitem')
-                  span.flag-icon.flag-icon-fr
-                  |  French
-                a.dropdown-item(href='javascript:void(0)', role='menuitem')
-                  span.flag-icon.flag-icon-cn
-                  |  Chinese
-                a.dropdown-item(href='javascript:void(0)', role='menuitem')
-                  span.flag-icon.flag-icon-de
-                  |  German
-                a.dropdown-item(href='javascript:void(0)', role='menuitem')
-                  span.flag-icon.flag-icon-nl
-                  |  Dutch
-            li.nav-item.dropdown
-              a.nav-link.navbar-avatar(data-toggle='dropdown', href='#', aria-expanded='false', data-animation='scale-up', role='button')
-                span.avatar.avatar-online
-                  img(src='assets-global/portraits/5.jpg', alt='...')
-                  i
-              .dropdown-menu(role='menu')
-                a.dropdown-item(href='javascript:void(0)', role='menuitem')
-                  i.icon.md-account(aria-hidden='true')
-                  |  Profile
-                a.dropdown-item(href='javascript:void(0)', role='menuitem')
-                  i.icon.md-card(aria-hidden='true')
-                  |  Billing
-                a.dropdown-item(href='javascript:void(0)', role='menuitem')
-                  i.icon.md-settings(aria-hidden='true')
-                  |  Settings
-                .dropdown-divider
-                a.dropdown-item(href='/signout', role='menuitem')
-                  i.icon.md-power(aria-hidden='true')
-                  |  Logout
-            li.nav-item.dropdown
-              a.nav-link(data-toggle='dropdown', href='javascript:void(0)', title='Notifications', aria-expanded='false', data-animation='scale-up', role='button')
-                i.icon.md-notifications(aria-hidden='true')
-                span.badge.badge-pill.badge-danger.up 5
-              .dropdown-menu.dropdown-menu-right.dropdown-menu-media(role='menu')
-                .dropdown-menu-header
-                  h5 NOTIFICATIONS
-                  span.badge.badge-round.badge-danger New 5
-                .list-group
-                  div(data-role='container')
-                    div(data-role='content')
-                      a.list-group-item.dropdown-item(href='javascript:void(0)', role='menuitem')
-                        .media
-                          .pr-10
-                            i.icon.md-receipt.bg-red-600.white.icon-circle(aria-hidden='true')
-                          .media-body
-                            h6.media-heading A new order has been placed
-                            time.media-meta(datetime='2017-06-12T20:50:48+08:00') 5 hours ago
-                      a.list-group-item.dropdown-item(href='javascript:void(0)', role='menuitem')
-                        .media
-                          .pr-10
-                            i.icon.md-account.bg-green-600.white.icon-circle(aria-hidden='true')
-                          .media-body
-                            h6.media-heading Completed the task
-                            time.media-meta(datetime='2017-06-11T18:29:20+08:00') 2 days ago
-                      a.list-group-item.dropdown-item(href='javascript:void(0)', role='menuitem')
-                        .media
-                          .pr-10
-                            i.icon.md-settings.bg-red-600.white.icon-circle(aria-hidden='true')
-                          .media-body
-                            h6.media-heading Settings updated
-                            time.media-meta(datetime='2017-06-11T14:05:00+08:00') 2 days ago
-                      a.list-group-item.dropdown-item(href='javascript:void(0)', role='menuitem')
-                        .media
-                          .pr-10
-                            i.icon.md-calendar.bg-blue-600.white.icon-circle(aria-hidden='true')
-                          .media-body
-                            h6.media-heading Event started
-                            time.media-meta(datetime='2017-06-10T13:50:18+08:00') 3 days ago
-                      a.list-group-item.dropdown-item(href='javascript:void(0)', role='menuitem')
-                        .media
-                          .pr-10
-                            i.icon.md-comment.bg-orange-600.white.icon-circle(aria-hidden='true')
-                          .media-body
-                            h6.media-heading Message received
-                            time.media-meta(datetime='2017-06-10T12:34:48+08:00') 3 days ago
-                .dropdown-menu-footer
-                  a.dropdown-menu-footer-btn(href='javascript:void(0)', role='button')
-                    i.icon.md-settings(aria-hidden='true')
-                  a.dropdown-item(href='javascript:void(0)', role='menuitem') All notifications
-            li.nav-item.dropdown
-              a.nav-link(data-toggle='dropdown', href='javascript:void(0)', title='Messages', aria-expanded='false', data-animation='scale-up', role='button')
-                i.icon.md-email(aria-hidden='true')
-                span.badge.badge-pill.badge-info.up 3
-              .dropdown-menu.dropdown-menu-right.dropdown-menu-media(role='menu')
-                .dropdown-menu-header(role='presentation')
-                  h5 MESSAGES
-                  span.badge.badge-round.badge-info New 3
-                .list-group(role='presentation')
-                  div(data-role='container')
-                    div(data-role='content')
-                      a.list-group-item.dropdown-item(href='javascript:void(0)', role='menuitem')
-                        .media
-                          .pr-10
-                            span.avatar.avatar-sm.avatar-online
-                              img(src='assets-global/portraits/2.jpg', alt='...')
-                              i
-                          .media-body
-                            h6.media-heading Mary Adams
-                            .media-meta
-                              time(datetime='2017-06-17T20:22:05+08:00') 30 minutes ago
-                            .media-detail Anyways, i would like just do it
-                      a.list-group-item.dropdown-item(href='javascript:void(0)', role='menuitem')
-                        .media
-                          .pr-10
-                            span.avatar.avatar-sm.avatar-off
-                              img(src='assets-global/portraits/3.jpg', alt='...')
-                              i
-                          .media-body
-                            h6.media-heading Caleb Richards
-                            .media-meta
-                              time(datetime='2017-06-17T12:30:30+08:00') 12 hours ago
-                            .media-detail I checheck the document. But there seems
-                      a.list-group-item.dropdown-item(href='javascript:void(0)', role='menuitem')
-                        .media
-                          .pr-10
-                            span.avatar.avatar-sm.avatar-busy
-                              img(src='assets-global/portraits/4.jpg', alt='...')
-                              i
-                          .media-body
-                            h6.media-heading June Lane
-                            .media-meta
-                              time(datetime='2017-06-16T18:38:40+08:00') 2 days ago
-                            .media-detail Lorem ipsum Id consectetur et minim
-                      a.list-group-item.dropdown-item(href='javascript:void(0)', role='menuitem')
-                        .media
-                          .pr-10
-                            span.avatar.avatar-sm.avatar-away
-                              img(src='assets-global/portraits/5.jpg', alt='...')
-                              i
-                          .media-body
-                            h6.media-heading Edward Fletcher
-                            .media-meta
-                              time(datetime='2017-06-15T20:34:48+08:00') 3 days ago
-                            .media-detail Dolor et irure cupidatat commodo nostrud nostrud.
-                .dropdown-menu-footer(role='presentation')
-                  a.dropdown-menu-footer-btn(href='javascript:void(0)', role='button')
-                    i.icon.md-settings(aria-hidden='true')
-                  a.dropdown-item(href='javascript:void(0)', role='menuitem') See all messages
-            li#toggleChat.nav-item
-              a.nav-link(data-toggle='site-sidebar', href='javascript:void(0)', title='Chat', data-url='site-sidebar.tpl')
-                i.icon.md-comment(aria-hidden='true')
-          // End Navbar Toolbar Right
-        // End Navbar Collapse
-        // Site Navbar Seach
-        #site-navbar-search.collapse.navbar-search-overlap
-          form(role='search')
-            .form-group
-              .input-search
-                i.input-search-icon.md-search(aria-hidden='true')
-                input.form-control(type='text', name='site-search', placeholder='Search...')
-                button.input-search-close.icon.md-close(type='button', data-target='#site-navbar-search', data-toggle='collapse', aria-label='Close')
-        // End Site Navbar Seach
-    .site-menubar
-      .site-menubar-body
-        div
-          div
-            ul.site-menu(data-plugin='menu')
-              li.site-menu-category General
-              li.site-menu-item.active
-                a.animsition-link(href='index.html')
-                  i.site-menu-icon.md-view-dashboard(aria-hidden='true')
-                  span.site-menu-title Dashboard
-              li.site-menu-item.has-sub
-                a(href='javascript:void(0)')
-                  i.site-menu-icon.md-view-dashboard(aria-hidden='true')
-                  span.site-menu-title Users Management
-                  span.site-menu-arrow
-                ul.site-menu-sub
-                  li.site-menu-item
-                    a.animsition-link(href='widgets/statistics.html')
-                      span.site-menu-title Statistics Widgets
-              li.site-menu-category Elements
-              li.site-menu-category Apps
-            .site-menubar-section
-              h5
-                | Milestone
-                span.float-right 30%
-              .progress.progress-xs
-                .progress-bar.active(style='width: 30%;', role='progressbar')
-              h5
-                | Release
-                span.float-right 60%
-              .progress.progress-xs
-                .progress-bar.progress-bar-warning(style='width: 60%;', role='progressbar')
-      .site-menubar-footer
-        a.fold-show(href='javascript: void(0);', data-placement='top', data-toggle='tooltip', data-original-title='Settings')
-          span.icon.md-settings(aria-hidden='true')
-        a(href='javascript: void(0);', data-placement='top', data-toggle='tooltip', data-original-title='Lock')
-          span.icon.md-eye-off(aria-hidden='true')
-        a(href='javascript: void(0);', data-placement='top', data-toggle='tooltip', data-original-title='Logout')
-          span.icon.md-power(aria-hidden='true')
-    .site-gridmenu
-      div
-        div
-          ul
-            li
-              a(href='apps/mailbox/mailbox.html')
-                i.icon.md-email
-                span Mailbox
-            li
-              a(href='apps/calendar/calendar.html')
-                i.icon.md-calendar
-                span Calendar
-            li
-              a(href='apps/contacts/contacts.html')
-                i.icon.md-account
-                span Contacts
-            li
-              a(href='apps/media/overview.html')
-                i.icon.md-videocam
-                span Media
-            li
-              a(href='apps/documents/categories.html')
-                i.icon.md-receipt
-                span Documents
-            li
-              a(href='apps/projects/projects.html')
-                i.icon.md-image
-                span Project
-            li
-              a(href='apps/forum/forum.html')
-                i.icon.md-comments
-                span Forum
-            li
-              a(href='index.html')
-                i.icon.md-view-dashboard
-                span Dashboard
-    // Page
-    .page
-      .page-content.container-fluid
-        .row(data-plugin='matchHeight', data-by-row='true')
-          .col-xl-3.col-md-6
-            // Widget Linearea One
-            #widgetLineareaOne.card.card-shadow
-              .card-block.p-20.pt-10
-                .clearfix
-                  .grey-800.float-left.py-10
-                    i.icon.md-account.grey-600.font-size-24.vertical-align-bottom.mr-5
-                    |                   User
-                  span.float-right.grey-700.font-size-30 1,253
-                .mb-20.grey-500
-                  i.icon.md-long-arrow-up.green-500.font-size-16
-                  |  15%
-                  |                                   From this yesterday
-                .ct-chart.h-50
-            // End Widget Linearea One
-          .col-xl-3.col-md-6
-            // Widget Linearea Two
-            #widgetLineareaTwo.card.card-shadow
-              .card-block.p-20.pt-10
-                .clearfix
-                  .grey-800.float-left.py-10
-                    i.icon.md-flash.grey-600.font-size-24.vertical-align-bottom.mr-5
-                    |                   VISITS
-                  span.float-right.grey-700.font-size-30 2,425
-                .mb-20.grey-500
-                  i.icon.md-long-arrow-up.green-500.font-size-16
-                  |  34.2%
-                  |                                   From this week
-                .ct-chart.h-50
-            // End Widget Linearea Two
-          .col-xl-3.col-md-6
-            // Widget Linearea Three
-            #widgetLineareaThree.card.card-shadow
-              .card-block.p-20.pt-10
-                .clearfix
-                  .grey-800.float-left.py-10
-                    i.icon.md-chart.grey-600.font-size-24.vertical-align-bottom.mr-5
-                    |                   Total Clicks
-                  span.float-right.grey-700.font-size-30 1,864
-                .mb-20.grey-500
-                  i.icon.md-long-arrow-down.red-500.font-size-16
-                  |  15%
-                  |                                   From this yesterday
-                .ct-chart.h-50
-            // End Widget Linearea Three
-          .col-xl-3.col-md-6
-            // Widget Linearea Four
-            #widgetLineareaFour.card.card-shadow
-              .card-block.p-20.pt-10
-                .clearfix
-                  .grey-800.float-left.py-10
-                    i.icon.md-view-list.grey-600.font-size-24.vertical-align-bottom.mr-5
-                    |                   Items
-                  span.float-right.grey-700.font-size-30 845
-                .mb-20.grey-500
-                  i.icon.md-long-arrow-up.green-500.font-size-16
-                  |  18.4%
-                  |                                   From this yesterday
-                .ct-chart.h-50
-            // End Widget Linearea Four
-          .col-xxl-7.col-lg-7
-            // Widget Jvmap
-            .card.card-shadow
-              .card-block.p-0
-                #widgetJvmap.h-450
-            // End Widget Jvmap
-          .col-xxl-5.col-lg-5
-            // Widget Current Chart
-            #widgetCurrentChart.card.card-shadow
-              .p-30.white.bg-green-500
-                .font-size-20.mb-20 The current chart
-                .ct-chart.h-200
-              .bg-white.p-30.font-size-14
-                .counter.counter-lg.text-left
-                  .counter-label.mb-5 Approve rate are above average
-                  .counter-number-group
-                    span.counter-number 12,673
-                    span.counter-number-related.text-uppercase.font-size-14 pcs
-                button.btn-raised.btn.btn-info.btn-floating(type='button')
-                  i.icon.md-plus(aria-hidden='true')
-            // End Widget Current Chart
-          .col-xl-4.col-lg-6
-            // Widget User list
-            #widgetUserList.card
-              .card-header.cover.overlay
-                img.cover-image.h-200(src='themes/backend/assets/examples/images/dashboard-header.jpg', alt='...')
-                .overlay-panel.vertical-align.overlay-background
-                  .vertical-align-middle
-                    a.avatar.avatar-100.float-left.mr-20(href='javascript:void(0)')
-                      img(src='assets-global/portraits/5.jpg', alt='')
-                    .float-left
-                      .font-size-20 Robin Ahrens
-                      p.mb-20.text-nowrap
-                        span.text-break machidesign@gmail
-                      .text-nowrap.font-size-18
-                        a.white.mr-10(href='')
-                          i.icon.bd-twitter
-                        a.white.mr-10(href='')
-                          i.icon.bd-facebook
-                        a.white(href='')
-                          i.icon.bd-dribbble
-              .card-block.py-0
-                ul.list-group.list-group-full.list-group-dividered.mb-0
-                  li.list-group-item
-                    .media
-                      .pr-20
-                        a.avatar.avatar-lg(href='javascript:void(0)')
-                          img.img-responsive(src='assets-global/portraits/1.jpg', alt='...')
-                      .media-body
-                        h5.mt-0.mb-5 Herman Beck
-                        small San Francisco
-                  li.list-group-item
-                    .media
-                      .pr-20
-                        a.avatar.avatar-lg(href='javascript:void(0)')
-                          img.img-responsive(src='assets-global/portraits/2.jpg', alt='...')
-                      .media-body
-                        h5.mt-0.mb-5 Mary Adams
-                        small Salt Lake City, Utah
-                  li.list-group-item
-                    .media
-                      .pr-20
-                        a.avatar.avatar-lg(href='javascript:void(0)')
-                          img.img-responsive(src='assets-global/portraits/3.jpg', alt='...')
-                      .media-body
-                        h5.mt-0.mb-5 Caleb Richards
-                        small Basking Ridge, NJ
-                button.btn-raised.btn.btn-danger.btn-floating(type='button')
-                  i.icon.md-plus(aria-hidden='true')
-            // End Widget User list
-          .col-xl-4.col-lg-6
-            // Widget Chat
-            #chat.card.card-shadow
-              .card-header.bg-white.px-0
-                a.float-left(href='javascript:void(0)')
-                  i.icon.md-chevron-left(aria-hidden='true')
-                .text-right
-                  | Conversation with
-                  span.hidden-xs-down June Lane
-                  a.avatar.ml-10(data-toggle='tooltip', href='#', data-placement='right', title='June Lane')
-                    img(src='assets-global/portraits/4.jpg', alt='...')
-              .card-block
-                .chats
-                  .chat.chat-left
-                    .chat-avatar
-                      a.avatar(data-toggle='tooltip', href='#', data-placement='left', title='')
-                        img(src='assets-global/portraits/5.jpg', alt='Edward Fletcher')
-                    .chat-body
-                      .chat-content(data-toggle='tooltip', title='11:37:08 am')
-                        p Good morning, sir.
-                        p What can I do for you?
-                  .chat
-                    .chat-avatar
-                      a.avatar(data-toggle='tooltip', href='#', data-placement='right', title='')
-                        img(src='assets-global/portraits/4.jpg', alt='June Lane')
-                    .chat-body
-                      .chat-content(data-toggle='tooltip', title='11:39:57 am')
-                        p Well, I am just looking around.
-                  .chat.chat-left
-                    .chat-avatar
-                      a.avatar(data-toggle='tooltip', href='#', data-placement='left', title='')
-                        img(src='assets-global/portraits/5.jpg', alt='Edward Fletcher')
-                    .chat-body
-                      .chat-content(data-toggle='tooltip', title='11:40:10 am')
-                        p If necessary, please ask me.
-              .card-footer.bg-white
-                form
-                  .input-group.form-material
-                    span.input-group-btn
-                      a.btn.btn-pure.btn-default.icon.md-camera(href='javascript: void(0)')
-                    input.form-control(type='text', placeholder='Type message here ...')
-                    span.input-group-btn
-                      button.btn.btn-pure.btn-default.icon.md-mail-send(type='button')
-            // End Widget Chat
-          .col-xl-4.col-lg-6
-            // Widget Info
-            .card.card-shadow
-              .card-header.cover.overlay
-                .cover-background.h-200(style="background-image: url('assets-global/photos/placeholder.png')")
-              .card-block.px-30.py-20(style='height:calc(100% - 250px);')
-                .mb-10(style='margin-top: -70px;')
-                  a.avatar.avatar-100.bg-white.img-bordered(href='javascript:void(0)')
-                    img(src='assets-global/portraits/2.jpg', alt='')
-                .mb-20
-                  .font-size-20 Caleb Richards
-                  .font-size-14.grey-500
-                    span 2 hours ago
-                    |  |
-                    span Comments 20
-                p
-                  | Lorem ipsum dolLorem ip sum dolor sit amet, consectetur adipiscing elit. Integer
-                  | nec odio. Praesent libero.or sit amet, consectetur adipiscing elit.
-                  | Integer nec odio. Praesent libero.
-            // End Widget Info
-          .col-xxl-5.col-lg-6
-            // Panel Projects
-            #projects.panel
-              .panel-heading
-                h3.panel-title Projects
-              .table-responsive
-                table.table.table-striped
-                  thead
-                    tr
-                      td Projects
-                      td Completed
-                      td Date
-                      td Actions
-                  tbody
-                    tr
-                      td The sun climbing plan
-                      td
-                        span(data-plugin='peityPie', data-skin='red') 7/10
-                      td Jan 1, 2017
-                      td
-                        button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Edit')
-                          i.icon.md-wrench(aria-hidden='true')
-                        button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Delete')
-                          i.icon.md-close(aria-hidden='true')
-                    tr
-                      td Lunar probe project
-                      td
-                        span(data-plugin='peityPie', data-skin='blue') 3/10
-                      td Feb 12, 2017
-                      td
-                        button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Edit')
-                          i.icon.md-wrench(aria-hidden='true')
-                        button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Delete')
-                          i.icon.md-close(aria-hidden='true')
-                    tr
-                      td Dream successful plan
-                      td
-                        span(data-plugin='peityPie', data-skin='green') 9/10
-                      td Apr 9, 2017
-                      td
-                        button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Edit')
-                          i.icon.md-wrench(aria-hidden='true')
-                        button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Delete')
-                          i.icon.md-close(aria-hidden='true')
-                    tr
-                      td Office automatization
-                      td
-                        span(data-plugin='peityPie', data-skin='orange') 5/10
-                      td May 15, 2017
-                      td
-                        button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Edit')
-                          i.icon.md-wrench(aria-hidden='true')
-                        button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Delete')
-                          i.icon.md-close(aria-hidden='true')
-                    tr
-                      td Open strategy
-                      td
-                        span(data-plugin='peityPie', data-skin='brown') 2/10
-                      td Jun 2, 2017
-                      td
-                        button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Edit')
-                          i.icon.md-wrench(aria-hidden='true')
-                        button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Delete')
-                          i.icon.md-close(aria-hidden='true')
-            // End Panel Projects
-          .col-xxl-7.col-lg-6
-            // Panel Projects Status
-            #projects-status.panel
-              .panel-heading
-                h3.panel-title
-                  | Projects Status
-                  span.badge.badge-pill.badge-info 5
-              .table-responsive
-                table.table.table-striped
-                  thead
-                    tr
-                      td ID
-                      td Project
-                      td Status
-                      td.text-left Progress
-                  tbody
-                    tr
-                      td 619
-                      td The sun climbing plan
-                      td
-                        span.badge.badge-primary Developing
-                      td
-                        span(data-plugin='peityLine') 5,3,2,-1,-3,-2,2,3,5,2
-                    tr
-                      td 620
-                      td Lunar probe project
-                      td
-                        span.badge.badge-warning Design
-                      td
-                        span(data-plugin='peityLine') 1,-1,0,2,3,1,-1,1,4,2
-                    tr
-                      td 621
-                      td Dream successful plan
-                      td
-                        span.badge.badge-info Testing
-                      td
-                        span(data-plugin='peityLine') 2,3,-1,-3,-1,0,2,4,5,3
-                    tr
-                      td 622
-                      td Office automatization
-                      td
-                        span.badge.badge-danger Canceled
-                      td
-                        span(data-plugin='peityLine') 1,-2,0,2,4,5,3,2,4,2
-                    tr
-                      td 623
-                      td Open strategy
-                      td
-                        span.badge.badge-default Reply waiting
-                      td
-                        span(data-plugin='peityLine') 4,2,-1,-3,-2,1,3,5,2,4
-            // End Panel Projects Stats
-    // End Page
-    // Footer
-    footer.site-footer
-      .site-footer-legal
-        | © 2017
-        a(href='http://themeforest.net/item/remark-responsive-bootstrap-admin-template/11989202') Remark
-      .site-footer-right
-        | Crafted with
-        i.red-600.icon.md-favorite
-        |  by
-        a(href='http://themeforest.net/user/amazingSurge') amazingSurge
-    // Core
-    script(src='vendor/babel-external-helpers/babel-external-helpers.js')
-    script(src='vendor/jquery/jquery.js')
-    script(src='vendor/tether/tether.js')
-    script(src='vendor/bootstrap/bootstrap.js')
-    script(src='vendor/animsition/animsition.js')
-    script(src='vendor/mousewheel/jquery.mousewheel.js')
-    script(src='vendor/asscrollbar/jquery-asScrollbar.js')
-    script(src='vendor/asscrollable/jquery-asScrollable.js')
-    script(src='vendor/ashoverscroll/jquery-asHoverScroll.js')
-    script(src='vendor/waves/waves.js')
-    // Plugins
-    script(src='vendor/switchery/switchery.min.js')
-    script(src='vendor/intro-js/intro.js')
-    script(src='vendor/screenfull/screenfull.js')
-    script(src='vendor/slidepanel/jquery-slidePanel.js')
-    script(src='vendor/chartist/chartist.min.js')
-    script(src='vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.js')
-    script(src='vendor/jvectormap/jquery-jvectormap.min.js')
-    script(src='vendor/jvectormap/maps/jquery-jvectormap-world-mill-en.js')
-    script(src='vendor/matchheight/jquery.matchHeight-min.js')
-    script(src='vendor/peity/jquery.peity.min.js')
-    // Scripts
-    script(src='assets-global/js/State.js')
-    script(src='assets-global/js/Component.js')
-    script(src='assets-global/js/Plugin.js')
-    script(src='assets-global/js/Base.js')
-    script(src='assets-global/js/Config.js')
-    script(src='themes/backend/assets/js/Section/Menubar.js')
-    script(src='themes/backend/assets/js/Section/GridMenu.js')
-    script(src='themes/backend/assets/js/Section/Sidebar.js')
-    script(src='themes/backend/assets/js/Section/PageAside.js')
-    script(src='themes/backend/assets/js/Plugin/menu.js')
-    script(src='assets-global/js/config/colors.js')
-    script(src='themes/backend/assets/js/config/tour.js')
-    script.
-      Config.set('assets', '../assets');
-    // Page
-    script(src='themes/backend/assets/js/Site.js')
-    script(src='assets-global/js/Plugin/asscrollable.js')
-    script(src='assets-global/js/Plugin/slidepanel.js')
-    script(src='assets-global/js/Plugin/switchery.js')
-    script(src='assets-global/js/Plugin/matchheight.js')
-    script(src='assets-global/js/Plugin/jvectormap.js')
-    script(src='assets-global/js/Plugin/peity.js')
-    script(src='themes/backend/assets/examples/js/dashboard/v1.js')
+extends layout-backend
+block content
+  .page
+    .page-content.container-fluid
+      .row(data-plugin='matchHeight', data-by-row='true')
+        .col-xl-3.col-md-6
+          // Widget Linearea One
+          #widgetLineareaOne.card.card-shadow
+            .card-block.p-20.pt-10
+              .clearfix
+                .grey-800.float-left.py-10
+                  i.icon.md-account.grey-600.font-size-24.vertical-align-bottom.mr-5
+                  | User
+                span.float-right.grey-700.font-size-30 1,253
+              .mb-20.grey-500
+                i.icon.md-long-arrow-up.green-500.font-size-16
+                |  15%
+                |  From this yesterday
+              .ct-chart.h-50
+          // End Widget Linearea One
+        .col-xl-3.col-md-6
+          // Widget Linearea Two
+          #widgetLineareaTwo.card.card-shadow
+            .card-block.p-20.pt-10
+              .clearfix
+                .grey-800.float-left.py-10
+                  i.icon.md-flash.grey-600.font-size-24.vertical-align-bottom.mr-5
+                  | VISITS
+                span.float-right.grey-700.font-size-30 2,425
+              .mb-20.grey-500
+                i.icon.md-long-arrow-up.green-500.font-size-16
+                |  34.2%
+                | From this week
+              .ct-chart.h-50
+          // End Widget Linearea Two
+        .col-xl-3.col-md-6
+          // Widget Linearea Three
+          #widgetLineareaThree.card.card-shadow
+            .card-block.p-20.pt-10
+              .clearfix
+                .grey-800.float-left.py-10
+                  i.icon.md-chart.grey-600.font-size-24.vertical-align-bottom.mr-5
+                  |                   Total Clicks
+                span.float-right.grey-700.font-size-30 1,864
+              .mb-20.grey-500
+                i.icon.md-long-arrow-down.red-500.font-size-16
+                |  15%
+                | From this yesterday
+              .ct-chart.h-50
+          // End Widget Linearea Three
+        .col-xl-3.col-md-6
+          // Widget Linearea Four
+          #widgetLineareaFour.card.card-shadow
+            .card-block.p-20.pt-10
+              .clearfix
+                .grey-800.float-left.py-10
+                  i.icon.md-view-list.grey-600.font-size-24.vertical-align-bottom.mr-5
+                  |                   Items
+                span.float-right.grey-700.font-size-30 845
+              .mb-20.grey-500
+                i.icon.md-long-arrow-up.green-500.font-size-16
+                |  18.4%
+                |  From this yesterday
+              .ct-chart.h-50
+          // End Widget Linearea Four
+        .col-xxl-7.col-lg-7
+          // Widget Jvmap
+          .card.card-shadow
+            .card-block.p-0
+              #widgetJvmap.h-450
+          // End Widget Jvmap
+        .col-xxl-5.col-lg-5
+          // Widget Current Chart
+          #widgetCurrentChart.card.card-shadow
+            .p-30.white.bg-green-500
+              .font-size-20.mb-20 The current chart
+              .ct-chart.h-200
+            .bg-white.p-30.font-size-14
+              .counter.counter-lg.text-left
+                .counter-label.mb-5 Approve rate are above average
+                .counter-number-group
+                  span.counter-number 12,673
+                  span.counter-number-related.text-uppercase.font-size-14 pcs
+              button.btn-raised.btn.btn-info.btn-floating(type='button')
+                i.icon.md-plus(aria-hidden='true')
+          // End Widget Current Chart
+        .col-xl-4.col-lg-6
+          // Widget User list
+          #widgetUserList.card
+            .card-header.cover.overlay
+              img.cover-image.h-200(src='themes/backend/assets/examples/images/dashboard-header.jpg', alt='...')
+              .overlay-panel.vertical-align.overlay-background
+                .vertical-align-middle
+                  a.avatar.avatar-100.float-left.mr-20(href='javascript:void(0)')
+                    img(src='assets-global/portraits/5.jpg', alt='')
+                  .float-left
+                    .font-size-20 Robin Ahrens
+                    p.mb-20.text-nowrap
+                      span.text-break machidesign@gmail
+                    .text-nowrap.font-size-18
+                      a.white.mr-10(href='')
+                        i.icon.bd-twitter
+                      a.white.mr-10(href='')
+                        i.icon.bd-facebook
+                      a.white(href='')
+                        i.icon.bd-dribbble
+            .card-block.py-0
+              ul.list-group.list-group-full.list-group-dividered.mb-0
+                li.list-group-item
+                  .media
+                    .pr-20
+                      a.avatar.avatar-lg(href='javascript:void(0)')
+                        img.img-responsive(src='assets-global/portraits/1.jpg', alt='...')
+                    .media-body
+                      h5.mt-0.mb-5 Herman Beck
+                      small San Francisco
+                li.list-group-item
+                  .media
+                    .pr-20
+                      a.avatar.avatar-lg(href='javascript:void(0)')
+                        img.img-responsive(src='assets-global/portraits/2.jpg', alt='...')
+                    .media-body
+                      h5.mt-0.mb-5 Mary Adams
+                      small Salt Lake City, Utah
+                li.list-group-item
+                  .media
+                    .pr-20
+                      a.avatar.avatar-lg(href='javascript:void(0)')
+                        img.img-responsive(src='assets-global/portraits/3.jpg', alt='...')
+                    .media-body
+                      h5.mt-0.mb-5 Caleb Richards
+                      small Basking Ridge, NJ
+              button.btn-raised.btn.btn-danger.btn-floating(type='button')
+                i.icon.md-plus(aria-hidden='true')
+          // End Widget User list
+        .col-xl-4.col-lg-6
+          // Widget Chat
+          #chat.card.card-shadow
+            .card-header.bg-white.px-0
+              a.float-left(href='javascript:void(0)')
+                i.icon.md-chevron-left(aria-hidden='true')
+              .text-right
+                | Conversation with
+                span.hidden-xs-down June Lane
+                a.avatar.ml-10(data-toggle='tooltip', href='#', data-placement='right', title='June Lane')
+                  img(src='assets-global/portraits/4.jpg', alt='...')
+            .card-block
+              .chats
+                .chat.chat-left
+                  .chat-avatar
+                    a.avatar(data-toggle='tooltip', href='#', data-placement='left', title='')
+                      img(src='assets-global/portraits/5.jpg', alt='Edward Fletcher')
+                  .chat-body
+                    .chat-content(data-toggle='tooltip', title='11:37:08 am')
+                      p Good morning, sir.
+                      p What can I do for you?
+                .chat
+                  .chat-avatar
+                    a.avatar(data-toggle='tooltip', href='#', data-placement='right', title='')
+                      img(src='assets-global/portraits/4.jpg', alt='June Lane')
+                  .chat-body
+                    .chat-content(data-toggle='tooltip', title='11:39:57 am')
+                      p Well, I am just looking around.
+                .chat.chat-left
+                  .chat-avatar
+                    a.avatar(data-toggle='tooltip', href='#', data-placement='left', title='')
+                      img(src='assets-global/portraits/5.jpg', alt='Edward Fletcher')
+                  .chat-body
+                    .chat-content(data-toggle='tooltip', title='11:40:10 am')
+                      p If necessary, please ask me.
+            .card-footer.bg-white
+              form
+                .input-group.form-material
+                  span.input-group-btn
+                    a.btn.btn-pure.btn-default.icon.md-camera(href='javascript: void(0)')
+                  input.form-control(type='text', placeholder='Type message here ...')
+                  span.input-group-btn
+                    button.btn.btn-pure.btn-default.icon.md-mail-send(type='button')
+          // End Widget Chat
+        .col-xl-4.col-lg-6
+          // Widget Info
+          .card.card-shadow
+            .card-header.cover.overlay
+              .cover-background.h-200(style="background-image: url('assets-global/photos/placeholder.png')")
+            .card-block.px-30.py-20(style='height:calc(100% - 250px);')
+              .mb-10(style='margin-top: -70px;')
+                a.avatar.avatar-100.bg-white.img-bordered(href='javascript:void(0)')
+                  img(src='assets-global/portraits/2.jpg', alt='')
+              .mb-20
+                .font-size-20 Caleb Richards
+                .font-size-14.grey-500
+                  span 2 hours ago
+                  |  |
+                  span Comments 20
+              p
+                | Lorem ipsum dolLorem ip sum dolor sit amet, consectetur adipiscing elit. Integer
+                | nec odio. Praesent libero.or sit amet, consectetur adipiscing elit.
+                | Integer nec odio. Praesent libero.
+          // End Widget Info
+        .col-xxl-5.col-lg-6
+          // Panel Projects
+          #projects.panel
+            .panel-heading
+              h3.panel-title Projects
+            .table-responsive
+              table.table.table-striped
+                thead
+                  tr
+                    td Projects
+                    td Completed
+                    td Date
+                    td Actions
+                tbody
+                  tr
+                    td The sun climbing plan
+                    td
+                      span(data-plugin='peityPie', data-skin='red') 7/10
+                    td Jan 1, 2017
+                    td
+                      button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Edit')
+                        i.icon.md-wrench(aria-hidden='true')
+                      button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Delete')
+                        i.icon.md-close(aria-hidden='true')
+                  tr
+                    td Lunar probe project
+                    td
+                      span(data-plugin='peityPie', data-skin='blue') 3/10
+                    td Feb 12, 2017
+                    td
+                      button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Edit')
+                        i.icon.md-wrench(aria-hidden='true')
+                      button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Delete')
+                        i.icon.md-close(aria-hidden='true')
+                  tr
+                    td Dream successful plan
+                    td
+                      span(data-plugin='peityPie', data-skin='green') 9/10
+                    td Apr 9, 2017
+                    td
+                      button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Edit')
+                        i.icon.md-wrench(aria-hidden='true')
+                      button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Delete')
+                        i.icon.md-close(aria-hidden='true')
+                  tr
+                    td Office automatization
+                    td
+                      span(data-plugin='peityPie', data-skin='orange') 5/10
+                    td May 15, 2017
+                    td
+                      button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Edit')
+                        i.icon.md-wrench(aria-hidden='true')
+                      button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Delete')
+                        i.icon.md-close(aria-hidden='true')
+                  tr
+                    td Open strategy
+                    td
+                      span(data-plugin='peityPie', data-skin='brown') 2/10
+                    td Jun 2, 2017
+                    td
+                      button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Edit')
+                        i.icon.md-wrench(aria-hidden='true')
+                      button.btn.btn-sm.btn-icon.btn-pure.btn-default(type='button', data-toggle='tooltip', data-original-title='Delete')
+                        i.icon.md-close(aria-hidden='true')
+          // End Panel Projects
+        .col-xxl-7.col-lg-6
+          // Panel Projects Status
+          #projects-status.panel
+            .panel-heading
+              h3.panel-title
+                | Projects Status
+                span.badge.badge-pill.badge-info 5
+            .table-responsive
+              table.table.table-striped
+                thead
+                  tr
+                    td ID
+                    td Project
+                    td Status
+                    td.text-left Progress
+                tbody
+                  tr
+                    td 619
+                    td The sun climbing plan
+                    td
+                      span.badge.badge-primary Developing
+                    td
+                      span(data-plugin='peityLine') 5,3,2,-1,-3,-2,2,3,5,2
+                  tr
+                    td 620
+                    td Lunar probe project
+                    td
+                      span.badge.badge-warning Design
+                    td
+                      span(data-plugin='peityLine') 1,-1,0,2,3,1,-1,1,4,2
+                  tr
+                    td 621
+                    td Dream successful plan
+                    td
+                      span.badge.badge-info Testing
+                    td
+                      span(data-plugin='peityLine') 2,3,-1,-3,-1,0,2,4,5,3
+                  tr
+                    td 622
+                    td Office automatization
+                    td
+                      span.badge.badge-danger Canceled
+                    td
+                      span(data-plugin='peityLine') 1,-2,0,2,4,5,3,2,4,2
+                  tr
+                    td 623
+                    td Open strategy
+                    td
+                      span.badge.badge-default Reply waiting
+                    td
+                      span(data-plugin='peityLine') 4,2,-1,-3,-2,1,3,5,2,4

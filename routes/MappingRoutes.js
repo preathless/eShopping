@@ -86,4 +86,13 @@ router.get(LOGIN, authCtrl.getLogin);
 router.get(REGISTER, authCtrl.getRegister);
 router.get(FORGOT, authCtrl.getForgotPassword);
 
+// Layout
+router.get('/layout', (req, res) => {
+  res.render('backend/layout-backend')
+})
+
+router.get('/categories', (req, res) => {
+  res.render('backend/management/categories')
+})
+
 module.exports = router;
