@@ -40,14 +40,16 @@ const ROUTES = {
   REGISTER:     '/register',
   FORGOT:       '/forgot',
   ERROR404:     '/404',
-  LOGIN:        '/login'
+  LOGIN:        '/login',
+  CATEGORIES:   '/categories'
 };
 
 const RENDER = {
   _DASHBOARD:   'backend/index',
   _LOGIN:       'backend/authenticate/login',
   _REGISTER:    'backend/authenticate/register',
-  _FORGOT:      'backend/authenticate/forgot-password'
+  _FORGOT:      'backend/authenticate/forgot-password',
+  _CATEGORIES:  'backend/management/categories'
 };
 
 // DB Connection String
