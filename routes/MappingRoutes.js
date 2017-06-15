@@ -5,10 +5,15 @@
  * Written by luc <luc@ltv.vn> on Jan 25, 2017
  */
 const express = require('express');
+const passport = require('passport');
 const router = express.Router();
 const homeCtrl = require('../controllers/HomeController');
 const authCtrl = require('../controllers/AuthController');
 const iCrtl = require('../controllers/InterfaceController');
+
+// Required Passport Middleware.
+const as = require('../configs/passport-facebook');
+const ab = require('../configs/passport');
 
 const {
         // Front-End
@@ -26,6 +31,8 @@ const {
         BLOG,
         BLOGSG,
         // Back-End
+        AUTH_FB,
+        AUTH_FB_CB,
         DASHBOARD,
         REGISTER,
         FORGOT,
@@ -35,34 +42,40 @@ const {
 
 const {_DASHBOARD} = require('../configs/constants').RENDER;
 
-/**
- * API keys and Passport configuration.
- */
-const passportConfig = require('../configs/passport');
-// const requireAuthenticated = passportConfig.isAuthenticated;
+// =====================================
+// FACEBOOK ROUTES =====================
+// =====================================
+// route for facebook authentication and login
+router.get(AUTH_FB, passport.authenticate('facebook', { scope : 'email' }));
+
+// handle the callback after facebook has authenticated the user
+router.get(AUTH_FB_CB, passport.authenticate('facebook', {
+    successRedirect : DASHBOARD,
+    failureRedirect : LOGIN
+}));
+
 
 // Home Page
-// router.get(ROOT, homeCtrl.getIndex);
-// router.get(HOME, homeCtrl.getIndex);
-// router.get(INDEX, homeCtrl.getIndex);
+router.get(ROOT, homeCtrl.getIndex);
+router.get(HOME, homeCtrl.getIndex);
+router.get(INDEX, homeCtrl.getIndex);
 
 // Authentication
 // router.get(SIGNIN, authCtrl.getSignIn);
 router.post(SIGNIN, authCtrl.postSignIn);
-router.get(SIGNOUT, authCtrl.getSignOut);
 router.post(SIGNUP, authCtrl.postSignUp);
-
+router.get(SIGNOUT, authCtrl.getSignOut);
 
 // Contact
-// router.get(CONTACT, iCrtl.getContact);
+router.get(CONTACT, iCrtl.getContact);
 
 // Cart
-// router.get(CART, iCrtl.getCart);
+router.get(CART, iCrtl.getCart);
 
 // Shop
-// router.get(SHOP, iCrtl.getShop);
-// router.get(PROD, iCrtl.getProductDetails);
-// router.get(CHECKOUT, iCrtl.getCheckout);
+router.get(SHOP, iCrtl.getShop);
+router.get(PROD, iCrtl.getProductDetails);
+router.get(CHECKOUT, iCrtl.getCheckout);
 
 // Back-End
 router.get(DASHBOARD, require('../configs/passport').isAuthenticated, (req, res) => {
