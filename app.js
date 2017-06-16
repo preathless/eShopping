@@ -12,6 +12,7 @@ const flash = require('express-flash');
 const cons = require('consolidate');
 
 const router = require('./routes/MappingRoutes');
+const apiRouter = require('./routes/ApiRoutes');
 const seeder = require('./helpers/seeder');
 const appPort = require('./configs/constants').PORT;
 const connStr = require('./configs/constants').CONNECTION_STR;
@@ -80,6 +81,7 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
  * App routes
  */
 app.use('/', router);
+app.use('/api/', apiRouter);
 
 /**
  * 404

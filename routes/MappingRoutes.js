@@ -12,8 +12,8 @@ const authCtrl = require('../controllers/AuthController');
 const iCrtl = require('../controllers/InterfaceController');
 
 // Required Passport Middleware.
-const as = require('../configs/passport-facebook');
-const ab = require('../configs/passport');
+require('../configs/passport-facebook');
+require('../configs/passport');
 
 const {
         // Front-End
