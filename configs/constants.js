@@ -44,6 +44,13 @@ const ROUTES = {
   CATEGORIES:   '/categories'
 };
 
+const API_ROUTES = {
+  ROOT: '/api/',
+
+  // Categories
+  CATEGORIES: '/categories',
+};
+
 const RENDER = {
   _DASHBOARD:   'backend/index',
   _LOGIN:       'backend/authenticate/login',
@@ -62,5 +69,6 @@ module.exports = {
   TEST_PORT,
   ROUTES,
   RENDER,
-  CONNECTION_STR
+  CONNECTION_STR,
+  API_ROUTES,
 }
