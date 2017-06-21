@@ -4,30 +4,38 @@ block content
     .page-header
     .page-content.container-fluid
       .row
-        .col-xxl-6
+        .col-xxl-9
           // Panel Basic
           .panel
             header.panel-heading
-              h3.panel-title Categires List
+              h3.panel-title -- Categories List --
+              .panel-actions
+                .btn-group.btn-group-sm(data-toggle='buttons', role='group')
+                  label.btn.btn-info.active
+                    input.views(type='checkbox', value='heading', checked='')
+                    |  Heading
+                  label.btn.btn-info.active
+                    input.views(type='checkbox', value='filtering', checked='')
+                    |  Filtering
+                  label.btn.btn-info
+                    input.views(type='checkbox', value='inserting')
+                    |  Inserting
+                  label.btn.btn-info.active
+                    input.views(type='checkbox', value='editing', checked='')
+                    |  Editing
+                  label.btn.btn-info.active
+                    input.views(type='checkbox', value='paging', checked='')
+                    |  Paging
+                  label.btn.btn-info.active
+                    input.views(type='checkbox', value='sorting', checked='')
+                    |  Sorting
+                  label.btn.btn-info.active
+                    input.views(type='checkbox', value='selecting', checked='')
+                    |  Selecting
             .panel-body
-              #cateTable
+              #customViews
 //- Script
 block scripts
-  script(src='vendor/datatables.net/jquery.dataTables.js')
-  script(src='vendor/datatables.net-bs4/dataTables.bootstrap4.js')
-  script(src='vendor/datatables.net-fixedheader/dataTables.fixedHeader.js')
-  script(src='vendor/datatables.net-fixedcolumns/dataTables.fixedColumns.js')
-  script(src='vendor/datatables.net-rowgroup/dataTables.rowGroup.js')
-  script(src='vendor/datatables.net-scroller/dataTables.scroller.js')
-  script(src='vendor/datatables.net-select-bs4/dataTables.select.js')
-  script(src='vendor/datatables.net-responsive/dataTables.responsive.js')
-  script(src='vendor/datatables.net-responsive-bs4/responsive.bootstrap4.js')
-  script(src='vendor/datatables.net-buttons/dataTables.buttons.js')
-  script(src='vendor/datatables.net-buttons/buttons.html5.js')
-  script(src='vendor/datatables.net-buttons/buttons.flash.js')
-  script(src='vendor/datatables.net-buttons/buttons.print.js')
-  script(src='vendor/datatables.net-buttons/buttons.colVis.js')
-  script(src='vendor/datatables.net-buttons-bs4/buttons.bootstrap4.js')
-  script(src='assets-global/js/Plugin/datatables.js')
-  script(src='/themes/backend/assets/examples/js/tables/datatable.js')
-  script(src='/themes/backend/components/data-table-category.js')
+  script(src='vendor/jsgrid/jsgrid.js')
+  script(src='themes/backend/components/com-categories-db.js')
+  script(src='themes/backend/components/com-categories.js')
