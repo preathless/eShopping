@@ -3,6 +3,47 @@
  * Copyright 2017 amazingsurge
  * Licensed under the Themeforest Standard Licenses
  */
+(function() {
+
+    var jsGridController = {
+
+        loadData: function(filter) {
+            return $.ajax({
+                type: "GET",
+                url: "/api/categories",
+                data: filter
+            });
+        },
+        // Insert New Row
+        insertItem: function(item) {
+            return $.ajax({
+                type: "POST",
+                url: "/api/categories",
+                data: item
+            });
+        },
+        // Update row
+        updateItem: function(item) {
+            return $.ajax({
+                type: "PUT",
+                url: "/api/categories",
+                data: item
+            });
+        },
+        // Delete row
+        deleteItem: function(item) {
+            return $.ajax({
+                type: "DELETE",
+                url: "/api/categories",
+                data: item
+            });
+        },
+    };
+
+    window.jsGridController = jsGridController;
+
+}());
+
 (function(document, window, $) {
     // 'use strict';
 
@@ -74,9 +115,16 @@
         }
     });
 
-    // Example Custom View
-    // -------------------
-    (function() {
+    axios.get('/api/getCateParent')
+        .then(function(response) {
+            var categories = response.data;
+            initGrid(categories);
+        }).catch(function(err) {
+            alert(err.message);
+        });
+
+    function initGrid(categories) {
+
         $('#customViews').jsGrid({
             height: "400px",
             width: "100%",
@@ -110,9 +158,10 @@
                 title: "Parent",
                 name: "catePrnt",
                 type: "select",
-                items: jsGridController.cateParent,
-                valueField: "catePrnt",
-                textField: "catePrnt"
+                items: categories,
+                valueField: "cateId",
+                textField: "cateNm",
+                valueType: "number|string"
             }, {
                 title: "Active Flag",
                 name: "activeFlag",
@@ -129,13 +178,18 @@
                 type: "control",
                 modeSwitchButton: false,
                 editButton: true
-            }]
+            }],
+
+            onItemUpdating: function(args) {
+                alert("Specify the name of the item!");
+            }
+
         });
 
-        $(".views").on("change", function() {
+        $(".views").on("click", function() {
             var $cb = $(this);
-            $("#customViews").jsGrid("option", $cb.attr("value"), $cb.is(":checked"));
+            $("#customViews").jsGrid("option", $cb.attr("value"));
         });
-    })();
+    }
 
 })(document, window, jQuery);

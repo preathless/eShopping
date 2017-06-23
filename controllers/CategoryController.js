@@ -31,14 +31,9 @@ const getCategories = (req, res) => {
  * @param {*} res
  */
 const getCategoryParent = (req, res) => {
-    Category.find({
-
-        }, {
-            catePrnt:1
-        })
+    Category.find({}, 'cateId cateNm catePrnt')
         .then((categories) => {
-            console.log(`Then categories: `, categories);
-            res.json(categories.catePrnt);
+            res.json(categories);
         })
         .catch((err) => {
             res.status(404).json(err);
@@ -89,7 +84,6 @@ const createCategory = (req, res) => {
  * @param {*} res
  */
 const deleteCategory = (req, res) => {
-    console.log(`deleteCategory: `, req.body);
     Category.remove({ _id: req.body._id })
         .then(() => {
             res.json({message: 'Ok'});
