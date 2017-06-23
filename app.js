@@ -27,7 +27,7 @@ app.set('port', appPort);
 // app.engine('html', cons.swig);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
+;
 // Passport
 app.use(session({
   resave: true,

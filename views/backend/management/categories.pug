@@ -4,38 +4,22 @@ block content
     .page-header
     .page-content.container-fluid
       .row
-        .col-xxl-9
+        .col-xxl-7
           // Panel Basic
           .panel
             header.panel-heading
               h3.panel-title -- Categories List --
-              .panel-actions
-                .btn-group.btn-group-sm(data-toggle='buttons', role='group')
-                  label.btn.btn-info.active
-                    input.views(type='checkbox', value='heading', checked='')
-                    |  Heading
-                  label.btn.btn-info.active
-                    input.views(type='checkbox', value='filtering', checked='')
-                    |  Filtering
-                  label.btn.btn-info
-                    input.views(type='checkbox', value='inserting')
-                    |  Inserting
-                  label.btn.btn-info.active
-                    input.views(type='checkbox', value='editing', checked='')
-                    |  Editing
-                  label.btn.btn-info.active
-                    input.views(type='checkbox', value='paging', checked='')
-                    |  Paging
-                  label.btn.btn-info.active
-                    input.views(type='checkbox', value='sorting', checked='')
-                    |  Sorting
-                  label.btn.btn-info.active
-                    input.views(type='checkbox', value='selecting', checked='')
-                    |  Selecting
+              //- .panel-actions
+              //-   .btn-group.btn-group-sm(data-toggle='buttons', role='group')
+              //-     label.btn.btn-info.active
+              //-       button.views(type='button', value='heading')
+              //-       |  Search
+              //-     label.btn.btn-info.active
+              //-       button.views(type='button', value='inserting')
+              //-       |  New Row
             .panel-body
               #customViews
 //- Script
 block scripts
   script(src='vendor/jsgrid/jsgrid.js')
-  script(src='themes/backend/components/com-categories-db.js')
   script(src='themes/backend/components/com-categories.js')

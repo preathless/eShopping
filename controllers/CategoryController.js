@@ -25,6 +25,23 @@ const getCategories = (req, res) => {
 
 /**
  * This function for handle /api/categories
+ * Get all categories with filter
+ *
+ * @param {*} req
+ * @param {*} res
+ */
+const getCategoryParent = (req, res) => {
+    Category.find({}, 'cateId cateNm catePrnt')
+        .then((categories) => {
+            res.json(categories);
+        })
+        .catch((err) => {
+            res.status(404).json(err);
+        });
+};
+
+/**
+ * This function for handle /api/categories
  * Update category
  *
  * @param {*} req
@@ -67,7 +84,6 @@ const createCategory = (req, res) => {
  * @param {*} res
  */
 const deleteCategory = (req, res) => {
-    console.log(`deleteCategory: `, req.body);
     Category.remove({ _id: req.body._id })
         .then(() => {
             res.json({message: 'Ok'});
@@ -82,4 +98,5 @@ module.exports = {
     createCategory,
     updateCategory,
     deleteCategory,
+    getCategoryParent
 };

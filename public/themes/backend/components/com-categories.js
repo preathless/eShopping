@@ -3,8 +3,49 @@
  * Copyright 2017 amazingsurge
  * Licensed under the Themeforest Standard Licenses
  */
+(function() {
+
+    var jsGridController = {
+
+        loadData: function(filter) {
+            return $.ajax({
+                type: "GET",
+                url: "/api/categories",
+                data: filter
+            });
+        },
+        // Insert New Row
+        insertItem: function(item) {
+            return $.ajax({
+                type: "POST",
+                url: "/api/categories",
+                data: item
+            });
+        },
+        // Update row
+        updateItem: function(item) {
+            return $.ajax({
+                type: "PUT",
+                url: "/api/categories",
+                data: item
+            });
+        },
+        // Delete row
+        deleteItem: function(item) {
+            return $.ajax({
+                type: "DELETE",
+                url: "/api/categories",
+                data: item
+            });
+        },
+    };
+
+    window.jsGridController = jsGridController;
+
+}());
+
 (function(document, window, $) {
-    'use strict';
+    // 'use strict';
 
     var Site = window.Site;
 
@@ -74,11 +115,18 @@
         }
     });
 
-    // Example Custom View
-    // -------------------
-    (function() {
+    axios.get('/api/getCateParent')
+        .then(function(response) {
+            var categories = response.data;
+            initGrid(categories);
+        }).catch(function(err) {
+            alert(err.message);
+        });
+
+    function initGrid(categories) {
+
         $('#customViews').jsGrid({
-            height: "500px",
+            height: "400px",
             width: "100%",
 
             filtering: false,
@@ -87,109 +135,61 @@
             paging: true,
             autoload: true,
 
-            pageSize: 15,
+            pageSize: 10,
             pageButtonCount: 5,
 
-            controller: db,
+            controller: jsGridController,
 
             fields: [{
-                name: "Name",
+                title: "ID",
+                name: "cateId",
                 type: "text",
-                width: 150
+                width: 50,
+                align: "center",
+                filtering: false,
+                validate: "required"
             }, {
-                name: "Age",
-                type: "number",
-                width: 70,
-            }, {
-                name: "Address",
+                title: "Name",
+                name: "cateNm",
                 type: "text",
-                width: 200
+                width: 150,
+                validate: "required"
             }, {
-                name: "Country",
+                title: "Parent",
+                name: "catePrnt",
                 type: "select",
-                items: db.countries,
-                valueField: "Id",
-                textField: "Name"
+                items: categories,
+                valueField: "cateId",
+                textField: "cateNm",
+                valueType: "number|string"
             }, {
-                name: "Married",
+                title: "Active Flag",
+                name: "activeFlag",
                 type: "checkbox",
-                title: "Is Married",
-                sorting: false
+                sorting: false,
+                filtering: false
+            }, {
+                title: "Delete Flag",
+                name: "deleteFlag",
+                type: "checkbox",
+                sorting: false,
+                filtering: false
             }, {
                 type: "control",
                 modeSwitchButton: false,
                 editButton: true
-            }]
+            }],
+
+            onItemUpdating: function(args) {
+                alert("Specify the name of the item!");
+            }
+
         });
 
-        $(".views").on("change", function() {
+        $(".views").on("click", function() {
             var $cb = $(this);
-            $("#customViews").jsGrid("option", $cb.attr("value"), $cb.is(":checked"));
+            $("#customViews").jsGrid("option", $cb.attr("value"));
         });
-    })();
-
-    const jsGridController = (function() {
-        return {
-            // Search Data
-            loadData: function(filter) {
-                return $.ajax({
-                    type: "GET",
-                    url: "/api/categories",
-                    data: filter
-                });
-            },
-            // Insert New Row
-            insertItem: function(item) {
-                return $.ajax({
-                    type: "POST",
-                    url: "/api/categories",
-                    data: item
-                });
-            },
-            // Update row
-            updateItem: function(item) {
-                return $.ajax({
-                    type: "PUT",
-                    url: "/api/categories",
-                    data: item
-                });
-            },
-            // Delete row
-            deleteItem: function(item) {
-                return $.ajax({
-                    type: "DELETE",
-                    url: "/api/categories",
-                    data: item
-                });
-            },
-        };
-    }());
+    }
 
 })(document, window, jQuery);
-
-db.countries = [{
-    Name: "",
-    Id: 0
-}, {
-    Name: "United States",
-    Id: 1
-}, {
-    Name: "Canada",
-    Id: 2
-}, {
-    Name: "United Kingdom",
-    Id: 3
-}, {
-    Name: "France",
-    Id: 4
-}, {
-    Name: "Brazil",
-    Id: 5
-}, {
-    Name: "China",
-    Id: 6
-}, {
-    Name: "Russia",
-    Id: 7
-}];
-

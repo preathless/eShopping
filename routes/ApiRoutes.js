@@ -23,4 +23,6 @@ router.route(CATEGORIES)
         .put(cateCtrl.updateCategory)
         .delete(cateCtrl.deleteCategory);
 
+router.get('/getCateParent', cateCtrl.getCategoryParent);
+
 module.exports = router;
