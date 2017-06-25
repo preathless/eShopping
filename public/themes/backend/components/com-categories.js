@@ -155,6 +155,11 @@
                 width: 150,
                 validate: "required"
             }, {
+                title: "Level",
+                name: "cateLevel",
+                type: "text",
+                width: 50,
+            }, {
                 title: "Parent",
                 name: "catePrnt",
                 type: "select",
@@ -176,8 +181,28 @@
                 filtering: false
             }, {
                 type: "control",
-                modeSwitchButton: false,
-                editButton: true
+                
+                editButton: true,                               // show edit button
+                deleteButton: true,                             // show delete button
+                clearFilterButton: true,                        // show clear filter button
+                modeSwitchButton: true,                         // show switching filtering/inserting button
+            
+                align: "center",                                // center content alignment
+                width: 50,                                      // default column width is 50px
+                filtering: false,                               // disable filtering for column
+                inserting: false,                               // disable inserting for column
+                editing: false,                                 // disable editing for column
+                sorting: false,                                 // disable sorting for column
+            
+                searchModeButtonTooltip: "Switch to searching", // tooltip of switching filtering/inserting button in inserting mode
+                insertModeButtonTooltip: "Switch to inserting", // tooltip of switching filtering/inserting button in filtering mode
+                editButtonTooltip: "Edit",                      // tooltip of edit item button
+                deleteButtonTooltip: "Delete",                  // tooltip of delete item button
+                searchButtonTooltip: "Search",                  // tooltip of search button
+                clearFilterButtonTooltip: "Clear filter",       // tooltip of clear filter button
+                insertButtonTooltip: "Insert",                  // tooltip of insert button
+                updateButtonTooltip: "Update",                  // tooltip of update item button
+                cancelEditButtonTooltip: "Cancel edit",         // tooltip of cancel editing button
             }],
 
             onItemUpdating: function(args) {
@@ -186,9 +211,9 @@
 
         });
 
-        $(".views").on("click", function() {
+        $(".views").on("change", function() {
             var $cb = $(this);
-            $("#customViews").jsGrid("option", $cb.attr("value"));
+            $("#customViews").jsGrid("option", $cb.attr("value"), $cb.is(":checked"));
         });
     }
 

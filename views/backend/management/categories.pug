@@ -9,14 +9,11 @@ block content
           .panel
             header.panel-heading
               h3.panel-title -- Categories List --
-              //- .panel-actions
-              //-   .btn-group.btn-group-sm(data-toggle='buttons', role='group')
-              //-     label.btn.btn-info.active
-              //-       button.views(type='button', value='heading')
-              //-       |  Search
-              //-     label.btn.btn-info.active
-              //-       button.views(type='button', value='inserting')
-              //-       |  New Row
+              .panel-actions
+                .btn-group.btn-group-sm(data-toggle='buttons', role='group')
+                  label.btn.btn-info.active
+                    input.views(type='checkbox', value='inserting')
+                    |  New Row
             .panel-body
               #customViews
 //- Script
