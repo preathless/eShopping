@@ -1,22 +1,7 @@
 extends ../layout-backend
 block content
-  .page
-    .page-header
-    .page-content.container-fluid
-      .row
-        .col-xxl-7
-          // Panel Basic
-          .panel
-            header.panel-heading
-              h3.panel-title -- Categories List --
-              .panel-actions
-                .btn-group.btn-group-sm(data-toggle='buttons', role='group')
-                  label.btn.btn-info.active
-                    input.views(type='checkbox', value='inserting')
-                    |  New Row
-            .panel-body
-              #customViews
-//- Script
-block scripts
-  script(src='vendor/jsgrid/jsgrid.js')
-  script(src='themes/backend/components/com-categories.js')
+  .row
+  .col-12
+    .card
+      .card-block
+        

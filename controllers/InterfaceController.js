@@ -20,7 +20,7 @@ const getCheckout = (req, res) => {
   res.render('checkout', {title: ''});
 };
 
-// ADMIN
+//- ADMIN
 const getDashboard = (req, res) => {
   res.render('back-end/dashboard', {title: 'Dashboard'});
 }
@@ -55,17 +55,17 @@ const createCategory = (req, res) => {
   let cateNm = req.body.catenm;
   let catePrnt = req.body.cateprnt;
 
-  // Create user instance
+  //- Create user instance
   const cateInfo = {
     cateId,
     cateNm,
     catePrnt,
   };
 
-  // Call serivce to create
+  //- Call serivce to create
   cateService.createCategory(cateInfo)
     .then((cate) => {
-      // showNotification('top','left');
+      //- showNotification('top','left');
       res.render('back-end/dashboard');
     })
     .catch((error) => {

@@ -16,7 +16,7 @@ const {
 /**
  * Get Categories
  */
-// router.get(CATEGORIES, cateCtrl.getCategories);
+//- router.get(CATEGORIES, cateCtrl.getCategories);
 router.route(CATEGORIES)
         .get(cateCtrl.getCategories)
         .post(cateCtrl.createCategory)

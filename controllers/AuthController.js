@@ -90,20 +90,20 @@ const getSignUp = (req, res) => {
 };
 
 const postSignUp = (req, res) => {
-  // Get user information
+  //- Get user information
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
   const repeatPassword = req.body.passwordCheck;
 
-  // Create user instance
+  //- Create user instance
   const usrInfo = {
     username,
     email,
     password,
   };
 
-  // Call serivce to create
+  //- Call serivce to create
   authService.createNewUser(usrInfo)
     .then((user) => {
       res.redirect(LOGIN);
@@ -132,7 +132,7 @@ module.exports = {
   getSignUp,
   getSignOut,
   postSignUp,
-  // Back-End
+  //- Back-End
   getLogin,
   getRegister,
   getForgotPassword

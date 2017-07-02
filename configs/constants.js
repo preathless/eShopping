@@ -5,21 +5,21 @@
  * Written by luc <luc@ltv.vn> on Jan 24, 2017
  */
 
-// Environment
+//- Environment
 const ENV = {
   DEV: 'development',
   PROD: 'production',
   TEST: 'test'
 };
 
-// Port
+//- Port
 const PORT = 3000;
 const TEST_PORT = 8000;
 
-// Routes
+//- Routes
 const ROUTES = {
   ROOT:     '/',
-  // Front-End
+  //- Front-End
   SIGNIN:   '/signin',
   SIGNOUT:  '/signout',
   SIGNUP:   '/signup',
@@ -33,7 +33,7 @@ const ROUTES = {
   404:      '/404',
   BLOG:     '/blog',
   BLOGSG:   '/blogsingle',
-  // Back-End
+  //- Back-End
   AUTH_FB:      '/auth/facebook',
   AUTH_FB_CB:   '/auth/facebook/callback',
   DASHBOARD:    '/dashboard',
@@ -41,13 +41,14 @@ const ROUTES = {
   FORGOT:       '/forgot',
   ERROR404:     '/404',
   LOGIN:        '/login',
-  CATEGORIES:   '/categories'
+  CATEGORIES:   '/categories',
+  PRODUCTS:     '/products'
 };
 
 const API_ROUTES = {
   ROOT: '/api/',
 
-  // Categories
+  //- Categories
   CATEGORIES: '/categories',
 };
 
@@ -56,13 +57,14 @@ const RENDER = {
   _LOGIN:       'backend/authenticate/login',
   _REGISTER:    'backend/authenticate/register',
   _FORGOT:      'backend/authenticate/forgot-password',
-  _CATEGORIES:  'backend/management/categories'
+  _CATEGORIES:  'backend/management/categories',
+  _PRODUCTS:    'backend/management/products'
 };
 
-// DB Connection String
+//- DB Connection String
 const CONNECTION_STR = 'mongodb://localhost:27017/eShopping';
 
-// Export Module
+//- Export Module
 module.exports = {
   ENV,
   PORT,
