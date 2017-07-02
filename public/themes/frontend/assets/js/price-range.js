@@ -126,7 +126,7 @@
 		this.layout();
 
 		if (this.touchCapable) {
-			// Touch: Bind touch events:
+			//- Touch: Bind touch events:
 			this.picker.on({
 				touchstart: $.proxy(this.mousedown, this)
 			});
@@ -193,7 +193,7 @@
 
 		mousedown: function(ev) {
 
-			// Touch: Get the original event:
+			//- Touch: Get the original event:
 			if (this.touchCapable && ev.type === 'touchstart') {
 				ev = ev.originalEvent;
 			}
@@ -215,7 +215,7 @@
 			this.layout();
 
 			if (this.touchCapable) {
-				// Touch: Bind touch events:
+				//- Touch: Bind touch events:
 				$(document).on({
 					touchmove: $.proxy(this.mousemove, this),
 					touchend: $.proxy(this.mouseup, this)
@@ -241,7 +241,7 @@
 
 		mousemove: function(ev) {
 			
-			// Touch: Get the original event:
+			//- Touch: Get the original event:
 			if (this.touchCapable && ev.type === 'touchmove') {
 				ev = ev.originalEvent;
 			}
@@ -271,7 +271,7 @@
 
 		mouseup: function(ev) {
 			if (this.touchCapable) {
-				// Touch: Bind touch events:
+				//- Touch: Bind touch events:
 				$(document).off({
 					touchmove: this.mousemove,
 					touchend: this.mouseup

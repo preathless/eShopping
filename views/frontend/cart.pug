@@ -1,0 +1,145 @@
+extends layout
+block content
+  section#cart_items
+    .container
+      .breadcrumbs
+        ol.breadcrumb
+          li
+            a(href='#') Home
+          li.active Shopping Cart
+      .table-responsive.cart_info
+        table.table.table-condensed
+          thead
+            tr.cart_menu
+              td.image Item
+              td.description
+              td.price Price
+              td.quantity Quantity
+              td.total Total
+              td
+          tbody
+            tr
+              td.cart_product
+                a(href='')
+                  img(src='../themes/font-end/assets/images/cart/one.png', alt='')
+              td.cart_description
+                h4
+                  a(href='') Colorblock Scuba
+                p Web ID: 1089772
+              td.cart_price
+                p $59
+              td.cart_quantity
+                .cart_quantity_button
+                  a.cart_quantity_up(href='')  +
+                  input.cart_quantity_input(type='text', name='quantity', value='1', autocomplete='off', size='2')
+                  a.cart_quantity_down(href='')  -
+              td.cart_total
+                p.cart_total_price $59
+              td.cart_delete
+                a.cart_quantity_delete(href='')
+                  i.fa.fa-times
+            tr
+              td.cart_product
+                a(href='')
+                  img(src='../themes/font-end/assets/images/cart/two.png', alt='')
+              td.cart_description
+                h4
+                  a(href='') Colorblock Scuba
+                p Web ID: 1089772
+              td.cart_price
+                p $59
+              td.cart_quantity
+                .cart_quantity_button
+                  a.cart_quantity_up(href='')  +
+                  input.cart_quantity_input(type='text', name='quantity', value='1', autocomplete='off', size='2')
+                  a.cart_quantity_down(href='')  -
+              td.cart_total
+                p.cart_total_price $59
+              td.cart_delete
+                a.cart_quantity_delete(href='')
+                  i.fa.fa-times
+            tr
+              td.cart_product
+                a(href='')
+                  img(src='../themes/font-end/assets/images/cart/three.png', alt='')
+              td.cart_description
+                h4
+                  a(href='') Colorblock Scuba
+                p Web ID: 1089772
+              td.cart_price
+                p $59
+              td.cart_quantity
+                .cart_quantity_button
+                  a.cart_quantity_up(href='')  +
+                  input.cart_quantity_input(type='text', name='quantity', value='1', autocomplete='off', size='2')
+                  a.cart_quantity_down(href='')  -
+              td.cart_total
+                p.cart_total_price $59
+              td.cart_delete
+                a.cart_quantity_delete(href='')
+                  i.fa.fa-times
+  //- /#cart_items
+  section#do_action
+    .container
+      .heading
+        h3 What would you like to do next?
+        p
+          | Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.
+      .row
+        .col-sm-6
+          .chose_area
+            ul.user_option
+              li
+                input(type='checkbox')
+                label Use Coupon Code
+              li
+                input(type='checkbox')
+                label Use Gift Voucher
+              li
+                input(type='checkbox')
+                label Estimate Shipping & Taxes
+            ul.user_info
+              li.single_field
+                label Country:
+                select
+                  option United States
+                  option Bangladesh
+                  option UK
+                  option India
+                  option Pakistan
+                  option Ucrane
+                  option Canada
+                  option Dubai
+              li.single_field
+                label Region / State:
+                select
+                  option Select
+                  option Dhaka
+                  option London
+                  option Dillih
+                  option Lahore
+                  option Alaska
+                  option Canada
+                  option Dubai
+              li.single_field.zip-field
+                label Zip Code:
+                input(type='text')
+            a.btn.btn-default.update(href='') Get Quotes
+            a.btn.btn-default.check_out(href='') Continue
+        .col-sm-6
+          .total_area
+            ul
+              li
+                | Cart Sub Total
+                span $59
+              li
+                | Eco Tax
+                span $2
+              li
+                | Shipping Cost
+                span Free
+              li
+                | Total
+                span $61
+            a.btn.btn-default.update(href='') Update
+            a.btn.btn-default.check_out(href='') Check Out

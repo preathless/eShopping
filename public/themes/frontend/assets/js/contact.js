@@ -13,7 +13,7 @@ jQuery(function($) {'use strict',
 
 });
 
-// Google Map Customization
+//- Google Map Customization
 (function(){
 
 	var map;
@@ -36,7 +36,7 @@ jQuery(function($) {'use strict',
 	map.addMarker({
 		lat: 43.1580159,
 		lng: -77.6030777,
-		// icon: image,
+		//- icon: image,
 		animation: google.maps.Animation.DROP,
 		verticalAlign: 'bottom',
 		horizontalAlign: 'center',

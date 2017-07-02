@@ -1,0 +1,28 @@
+extends layout
+block content
+  section#form
+    .container
+      .row
+        .col-sm-4.col-sm-offset-1
+          .login-form
+            //- login form
+            h2 Login to your account
+            form(action="/signin" method="post")
+              input(type='email', placeholder='Email Address', name="email")
+              input(type='password', placeholder='Password', name="password")
+              span
+                input.checkbox(type='checkbox')
+                | Keep me signed in
+              button.btn.btn-default(type='submit') Login
+          //- /login form
+        .col-sm-1
+          h2.or OR
+        .col-sm-4
+          .signup-form
+            //- sign up form
+            h2 New User Signup!
+            form(action="/signup", method="post")
+              input#username(type='text', placeholder='Name', name="username")
+              input(type='email', placeholder='Email Address', name="email")
+              input(type='password', placeholder='Password', name="password")
+              button.btn.btn-default(type='submit') Signup

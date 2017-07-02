@@ -1,8 +1,13 @@
-const Cate = require('../models/Category');
+const Category = require('../models/Category');
 
 const getCategories = () => {
-    return Cate.find({});
+    return Category.find({});
 };
+
+const getCategoryParent = () => {
+    return Category.find({}, "cateId cateNm catePrnt");
+};
+
 
 const createCategory = (cateInfo) => {
     cateInfo.activeFlag = true;
@@ -13,5 +18,6 @@ const createCategory = (cateInfo) => {
 
 module.exports = {
     getCategories,
+    getCategoryParent,
     createCategory
 };

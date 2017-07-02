@@ -29,37 +29,37 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(new FacebookStrategy({
-    // Facebook authenticate info
+    //- Facebook authenticate info
     clientID        : configAuth.facebookAuth.clientID,
     clientSecret    : configAuth.facebookAuth.clientSecret,
     callbackURL     : configAuth.facebookAuth.callbackURL
 },
-// Facebook will send back the token and profile.
+//- Facebook will send back the token and profile.
 function(token, refreshToken, profile, done) {
-    // Asynchronous
+    //- Asynchronous
     process.nextTick(function() {
-        // Find the user in the database based on their facebook id.
+        //- Find the user in the database based on their facebook id.
         User.findOne({'facebook.id' : profile.id}, function(err, user) {
-            // If there is an error, stop everything and return that.
+            //- If there is an error, stop everything and return that.
             if (err)
                 return done(err);
-            // if the user is found, then log them in.
+            //- if the user is found, then log them in.
             if (user) {
-                return done(null, user); // User found, return that user.
+                return done(null, user); //- User found, return that user.
             } else {
-                // If there is no user found with that Facebook ID, create them.
+                //- If there is no user found with that Facebook ID, create them.
                 var newUser = new User();
-                // Generl Infomation
-                // Set all of the facebook information in our user model.
-                newUser.facebook.id    = profile.id; // Set the users facebook id.
-                newUser.facebook.token = token; // We will save the token that facebook provides to the user.
-                newUser.facebook.name  = profile.displayName; // Look at the passport user profile to see how names are returned.
-                newUser.facebook.email = 'preathless@gmail.com';// profile.emails[0].value; // Facebook can return multiple emails so we'll take the first.
-                // Save our user to the database.
+                //- Generl Infomation
+                //- Set all of the facebook information in our user model.
+                newUser.facebook.id    = profile.id; //- Set the users facebook id.
+                newUser.facebook.token = token; //- We will save the token that facebook provides to the user.
+                newUser.facebook.name  = profile.displayName; //- Look at the passport user profile to see how names are returned.
+                newUser.facebook.email = 'preathless@gmail.com';//- profile.emails[0].value; //- Facebook can return multiple emails so we'll take the first.
+                //- Save our user to the database.
                 newUser.save(function(err) {
                     if (err)
                         throw err;
-                    // if successful, return the new user
+                    //- if successful, return the new user
                     return done(null, newUser);
                 });
             }

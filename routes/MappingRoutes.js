@@ -10,13 +10,14 @@ const router = express.Router();
 const homeCtrl = require('../controllers/HomeController');
 const authCtrl = require('../controllers/AuthController');
 const iCrtl = require('../controllers/InterfaceController');
+const cateCtrl = require('../controllers/CategoryController');
 
-// Required Passport Middleware.
+//- Required Passport Middleware.
 require('../configs/passport-facebook');
 require('../configs/passport');
 
 const {
-        // Front-End
+        //- Front-End
         ROOT,
         SIGNIN,
         SIGNOUT,
@@ -30,7 +31,7 @@ const {
         CART,
         BLOG,
         BLOGSG,
-        // Back-End
+        //- Back-End
         AUTH_FB,
         AUTH_FB_CB,
         DASHBOARD,
@@ -38,57 +39,70 @@ const {
         FORGOT,
         ERROR404,
         LOGIN,
-        CATEGORIES
+        CATEGORIES,
+        CREATE_CATE,
+        PRODUCTS
       } = require('../configs/constants').ROUTES;
 
-const {_DASHBOARD, _CATEGORIES} = require('../configs/constants').RENDER;
+const {_DASHBOARD, _CATEGORIES, _PRODUCTS} = require('../configs/constants').RENDER;
 
-// =====================================
-// FACEBOOK ROUTES =====================
-// =====================================
-// route for facebook authentication and login
+//- =====================================
+//- FACEBOOK ROUTES =====================
+//- =====================================
+//- route for facebook authentication and login
 router.get(AUTH_FB, passport.authenticate('facebook', { scope : 'email' }));
 
-// handle the callback after facebook has authenticated the user
+//- handle the callback after facebook has authenticated the user
 router.get(AUTH_FB_CB, passport.authenticate('facebook', {
     successRedirect : DASHBOARD,
     failureRedirect : LOGIN
 }));
 
 
-// Home Page
+//- Home Page
 router.get(ROOT, homeCtrl.getIndex);
 router.get(HOME, homeCtrl.getIndex);
 router.get(INDEX, homeCtrl.getIndex);
 
-// Authentication
-// router.get(SIGNIN, authCtrl.getSignIn);
+//- Authentication
+//- router.get(SIGNIN, authCtrl.getSignIn);
 router.post(SIGNIN, authCtrl.postSignIn);
 router.post(SIGNUP, authCtrl.postSignUp);
 router.get(SIGNOUT, authCtrl.getSignOut);
 
-// Contact
+//- Contact
 router.get(CONTACT, iCrtl.getContact);
 
-// Cart
+//- Cart
 router.get(CART, iCrtl.getCart);
 
-// Shop
+//- Shop
 router.get(SHOP, iCrtl.getShop);
 router.get(PROD, iCrtl.getProductDetails);
 router.get(CHECKOUT, iCrtl.getCheckout);
 
-// Back-End
+//- Back-End
 router.get(DASHBOARD, require('../configs/passport').isAuthenticated, (req, res) => {
-  res.render(_DASHBOARD);
+  res.render(_DASHBOARD, {
+    navigation: 'Admin Dashboard'
+  });
 });
 
 router.get(LOGIN, authCtrl.getLogin);
 router.get(REGISTER, authCtrl.getRegister);
 router.get(FORGOT, authCtrl.getForgotPassword);
 
-router.get(CATEGORIES, (req, res) => {
-  res.render(_CATEGORIES);
-})
+//- router.get(CATEGORIES, cateCtrl.getCategories);
+router.route(CATEGORIES)
+        .get(cateCtrl.getCategories)
+        .post(cateCtrl.createCategory)
+        .put(cateCtrl.updateCategory)
+        .delete(cateCtrl.deleteCategory);
+
+router.get(PRODUCTS, (req, res) => {
+  res.render(_PRODUCTS, {
+    navigation: 'All Products'
+  });
+});
 
 module.exports = router;

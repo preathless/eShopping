@@ -208,8 +208,8 @@ var GMaps = (function(global) {
 
     this.controls = [];
     this.overlays = [];
-    this.layers = []; // array with kml/georss and fusiontables layers, can be as many
-    this.singleLayers = {}; // object with the other layers, only one per layer
+    this.layers = []; //- array with kml/georss and fusiontables layers, can be as many
+    this.singleLayers = {}; //- object with the other layers, only one per layer
     this.markers = [];
     this.polylines = [];
     this.routes = [];
@@ -633,7 +633,7 @@ GMaps.prototype.createMarker = function(options) {
 GMaps.prototype.addMarker = function(options) {
   var marker;
   if(options.hasOwnProperty('gm_accessors_')) {
-    // Native google.maps.Marker object
+    //- Native google.maps.Marker object
     marker = options;
   }
   else {
@@ -1670,7 +1670,7 @@ GMaps.staticMapURL = function(options){
         marker = marker.join('|');
         parameters.push('markers=' + encodeURI(marker));
       }
-      // New marker without styles
+      //- New marker without styles
       else {
         marker = parameters.pop() + encodeURI('|' + loc);
         parameters.push(marker);
@@ -1951,10 +1951,10 @@ GMaps.geocode = function(options) {
 };
 
 //==========================
-// Polygon containsLatLng
-// https://github.com/tparkin/Google-Maps-Point-in-Polygon
-// Poygon getBounds extension - google-maps-extensions
-// http://code.google.com/p/google-maps-extensions/source/browse/google.maps.Polygon.getBounds.js
+//- Polygon containsLatLng
+//- https://github.com/tparkin/Google-Maps-Point-in-Polygon
+//- Poygon getBounds extension - google-maps-extensions
+//- http://code.google.com/p/google-maps-extensions/source/browse/google.maps.Polygon.getBounds.js
 if (!google.maps.Polygon.prototype.getBounds) {
   google.maps.Polygon.prototype.getBounds = function(latLng) {
     var bounds = new google.maps.LatLngBounds();
@@ -1973,16 +1973,16 @@ if (!google.maps.Polygon.prototype.getBounds) {
 }
 
 if (!google.maps.Polygon.prototype.containsLatLng) {
-  // Polygon containsLatLng - method to determine if a latLng is within a polygon
+  //- Polygon containsLatLng - method to determine if a latLng is within a polygon
   google.maps.Polygon.prototype.containsLatLng = function(latLng) {
-    // Exclude points outside of bounds as there is no way they are in the poly
+    //- Exclude points outside of bounds as there is no way they are in the poly
     var bounds = this.getBounds();
 
     if (bounds !== null && !bounds.contains(latLng)) {
       return false;
     }
 
-    // Raycast point in polygon method
+    //- Raycast point in polygon method
     var inPoly = false;
 
     var numPaths = this.getPaths().getLength();
@@ -2026,8 +2026,8 @@ google.maps.Marker.prototype.getId = function() {
 };
 
 //==========================
-// Array indexOf
-// https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/indexOf
+//- Array indexOf
+//- https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/indexOf
 if (!Array.prototype.indexOf) {
   Array.prototype.indexOf = function (searchElement /*, fromIndex */ ) {
       "use strict";
@@ -2042,7 +2042,7 @@ if (!Array.prototype.indexOf) {
       var n = 0;
       if (arguments.length > 1) {
           n = Number(arguments[1]);
-          if (n != n) { // shortcut for verifying if it's NaN
+          if (n != n) { //- shortcut for verifying if it's NaN
               n = 0;
           } else if (n != 0 && n != Infinity && n != -Infinity) {
               n = (n > 0 || -1) * Math.floor(Math.abs(n));
