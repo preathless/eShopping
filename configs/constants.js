@@ -42,6 +42,7 @@ const ROUTES = {
   ERROR404:     '/404',
   LOGIN:        '/login',
   CATEGORIES:   '/categories',
+  CREATE_CATE:  '/createCate',
   PRODUCTS:     '/products'
 };
 

@@ -1,7 +1,66 @@
 extends ../layout-backend
+
 block content
   .row
-  .col-12
-    .card
-      .card-block
-        
+    .col-9
+      // Column
+      .card
+        .card-block
+          h4.card-title Categories Table
+          h6.card-subtitle Export data to Copy, CSV, Excel, PDF & Print
+          .table-responsive.m-t-40
+            table.display.nowrap.table.table-hover.table-striped.table-bordered(cellspacing='0' width='100%' id="myTable")
+              thead
+                tr
+                  th ID
+                  th Name
+                  th Level
+                  th Parent
+                  th Active
+              tbody
+                for cateItem in categories
+                  tr
+                    td= cateItem.cateId
+                    td= cateItem.cateNm
+                    td= cateItem.cateLevel
+                    td= cateItem.catePrnt
+                    td= cateItem.activeFlag
+    .col-3
+      // Column
+      .card
+        .card-block
+          h4.card-title Create New Category
+          form.floating-labels.m-t-40(method="post" action="/categories")
+            .form-group.m-b-40
+              input.form-control(type='text' name="cateId" required='')
+              span.bar
+              label(for='cateId') ID
+            .form-group.m-b-40
+              input.form-control(type='text' name="cateNm" required='')
+              span.bar
+              label(for='cateNm') Name
+            .form-group.m-b-40
+              select.form-control.p-0(name="cateLevel" required='')
+                option
+                option 1
+                option 2
+                option 3
+              span.bar
+              label(for='cateLevel') Level
+            .form-group.m-b-40
+              select.form-control.p-0(name="catePrnt" required='')
+                option
+                for prntItem in cateParents
+                  option= prntItem.cateNm
+              span.bar
+              label(for='catePrnt') Parent
+            button.btn.btn-success.waves-effect.waves-light.m-r-10(type='submit') Submit
+            button.btn.btn-inverse.waves-effect.waves-light(type='submit') Cancel
+
+block externalScript
+  script(src='https://unpkg.com/axios/dist/axios.min.js')
+
+  //- Data Table
+  include ../system/dataTableScript.pug
+
+  

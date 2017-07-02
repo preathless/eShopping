@@ -17,7 +17,7 @@ const cateSchema = new mongoose.Schema({
   catePrnt:     {type: String},
 
   deleteFlag:   {type: Boolean, default: false},
-  activeFlag:   {type: Boolean, default: false}
+  activeFlag:   {type: Boolean, default: true}
   
 }, {timestamps: true });
 

@@ -10,6 +10,7 @@ const router = express.Router();
 const homeCtrl = require('../controllers/HomeController');
 const authCtrl = require('../controllers/AuthController');
 const iCrtl = require('../controllers/InterfaceController');
+const cateCtrl = require('../controllers/CategoryController');
 
 //- Required Passport Middleware.
 require('../configs/passport-facebook');
@@ -39,6 +40,7 @@ const {
         ERROR404,
         LOGIN,
         CATEGORIES,
+        CREATE_CATE,
         PRODUCTS
       } = require('../configs/constants').ROUTES;
 
@@ -90,9 +92,12 @@ router.get(LOGIN, authCtrl.getLogin);
 router.get(REGISTER, authCtrl.getRegister);
 router.get(FORGOT, authCtrl.getForgotPassword);
 
-router.get(CATEGORIES, (req, res) => {
-  res.render(_CATEGORIES);
-});
+//- router.get(CATEGORIES, cateCtrl.getCategories);
+router.route(CATEGORIES)
+        .get(cateCtrl.getCategories)
+        .post(cateCtrl.createCategory)
+        .put(cateCtrl.updateCategory)
+        .delete(cateCtrl.deleteCategory);
 
 router.get(PRODUCTS, (req, res) => {
   res.render(_PRODUCTS, {

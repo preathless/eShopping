@@ -1,4 +1,13 @@
 const Category = require("../models/Category");
+const cateService = require('../services/CategoryService')
+
+const {
+    CATEGORIES
+} = require('../configs/constants').ROUTES;
+
+const {
+    _CATEGORIES
+} = require('../configs/constants').RENDER;
 
 /**
  * This function for handle /api/categories
@@ -8,20 +17,16 @@ const Category = require("../models/Category");
  * @param {*} res
  */
 const getCategories = (req, res) => {
-    Category.find({
-            $and: [
-                {"cateNm": new RegExp(req.query.cateNm)},
-                {"catePrnt": new RegExp(req.query.catePrnt)}
-            ]
-        })
-        .then((categories) => {
-            console.log(`Then categories: `, categories);
-            res.json(categories);
+    Promise.all([cateService.getCategoryParent(), cateService.getCategories()])
+        .then((data) => {
+            let cateParents = data[0];
+            let categories = data[1];
+            res.render(_CATEGORIES, {cateParents, categories});
         })
         .catch((err) => {
-            res.status(404).json(err);
-        });
-};
+            next(err);
+        })
+}
 
 /**
  * This function for handle /api/categories
@@ -31,13 +36,52 @@ const getCategories = (req, res) => {
  * @param {*} res
  */
 const getCategoryParent = (req, res) => {
-    Category.find({}, 'cateId cateNm catePrnt')
-        .then((categories) => {
-            res.json(categories);
+    Promise.all([cateService.getCategoryParent()])
+        .then((cateParents) => {
+            res.render(_CATEGORIES, {cateParents});
         })
         .catch((err) => {
-            res.status(404).json(err);
-        });
+            next(err);
+        })
+};
+
+/**
+ * This function for handle /api/categories
+ * Create category
+ *
+ * @param {*} req
+ * @param {*} res
+ */
+const createCategory = (req, res) => {
+  let cateId = req.body.cateId;
+  let cateNm = req.body.cateNm;
+  let cateLevel = req.body.cateLevel;
+  let catePrnt = req.body.catePrnt;
+
+  //- Create user instance
+  const cateInfo = {
+    cateId,
+    cateNm,
+    cateLevel,
+    catePrnt,
+  };
+
+  //- Call serivce to create
+  cateService.createCategory(cateInfo)
+    .then((cate) => {
+      Promise.all([cateService.getCategories()])
+        .then((data) => {
+            let categories = data[0];
+            res.render(_CATEGORIES, {categories});
+        })
+        .catch((err) => {
+            next(err);
+        })
+    })
+    .catch((error) => {
+        console.log(`Error: `, error.message);
+        res.redirect(_CATEGORIES);
+    })
 };
 
 /**
@@ -52,24 +96,6 @@ const updateCategory = (req, res) => {
     Category.update({ _id: updatingCate._id }, { $set: { cateNm: updatingCate.cateNm, catePrnt: updatingCate.catePrnt }})
         .then((_) => {
             res.json(updatingCate);
-        })
-        .catch((err) => {
-            res.status(500).json(err);
-        });
-};
-
-/**
- * This function for handle /api/categories
- * Create category
- *
- * @param {*} req
- * @param {*} res
- */
-const createCategory = (req, res) => {
-    const creatingCate = req.body;
-    Category.create(creatingCate)
-        .then((cat) => {
-            res.json(cat);
         })
         .catch((err) => {
             res.status(500).json(err);

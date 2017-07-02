@@ -17,17 +17,17 @@ html(lang='en')
     section#wrapper.login-register.login-sidebar(style='background-image:url(themes/backend/assets/images/background/login-register.jpg);')
       .login-box.card
         .card-block
-          form#loginform.form-horizontal.form-material(action='/signin')
+          form#loginform.form-horizontal.form-material(method="post" action='/signin')
             a.text-center.db(href='javascript:void(0)')
               img(src='themes/backend/assets/images/logo-icon.png', alt='Home')
               br
               img(src='themes/backend/assets/images/logo-text.png', alt='Home')
             .form-group.m-t-40
               .col-xs-12
-                input.form-control(type='text', required='', placeholder='Username')
+                input.form-control(type='text', name="email" required='', placeholder='Email')
             .form-group
               .col-xs-12
-                input.form-control(type='password', required='', placeholder='Password')
+                input.form-control(type='password', name="password" required='', placeholder='Password')
             .form-group
               .col-md-12
                 .checkbox.checkbox-primary.pull-left.p-t-0
@@ -38,7 +38,7 @@ html(lang='en')
                   |  Forgot Password ?
             .form-group.text-center.m-t-20
               .col-xs-12
-                button.btn.btn-info.btn-lg.btn-block.text-uppercase.waves-effect.waves-light(typse='submit') Log In
+                button.btn.btn-info.btn-lg.btn-block.text-uppercase.waves-effect.waves-light(typse='submit') Sign In
             .row
               .col-xs-12.col-sm-12.col-md-12.m-t-10.text-center
                 .social

@@ -1,0 +1,15 @@
+  //- Js Grid
+  script(src='themes/backend/assets/plugins/jsgrid/dist/jsgrid.min.js')
+  script(src='themes/backend/components/com-categories-db.js')
+  script(src='themes/backend/components/com-categories.js')
+  //- Editable Table
+  script(src='themes/backend/assets/plugins/jquery-datatables-editable/jquery.dataTables.js')
+  script(src='themes/backend/assets/plugins/datatables/dataTables.bootstrap.js')
+  script(src='themes/backend/assets/plugins/tiny-editable/mindmup-editabletable.js')
+  script(src='themes/backend/assets/plugins/tiny-editable/numeric-input-example.js')
+  script.
+    $('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
+    $('#editable-datatable').editableTableWidget().numericInputExample().find('td:first').focus();
+    $(document).ready(function() {
+    $('#editable-datatable').DataTable();
+    });
