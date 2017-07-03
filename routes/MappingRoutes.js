@@ -92,7 +92,6 @@ router.get(LOGIN, authCtrl.getLogin);
 router.get(REGISTER, authCtrl.getRegister);
 router.get(FORGOT, authCtrl.getForgotPassword);
 
-//- router.get(CATEGORIES, cateCtrl.getCategories);
 router.route(CATEGORIES)
         .get(cateCtrl.getCategories)
         .post(cateCtrl.createCategory)
