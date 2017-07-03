@@ -11,20 +11,20 @@ const Schema = mongoose.Schema;
 
 const cateSchema = new mongoose.Schema({
 
-  cateId:       {type: String, unique: true},
-  cateNm:       {type: String},
-  cateLevel:    {type: String},
-  catePrnt:     {type: String},
+  cateId: { type: String, unique: true },
+  cateNm: { type: String },
+  cateLevel: { type: String },
+  catePrnt: { type: String },
 
-  deleteFlag:   {type: Boolean, default: false},
-  activeFlag:   {type: Boolean, default: true}
-  
-}, {timestamps: true });
+  deleteFlag: { type: Boolean, default: false },
+  activeFlag: { type: Boolean, default: true }
+
+}, { timestamps: true });
 
 cateSchema.pre('save', function save(next) {
   next();
 });
 
-const Cate = mongoose.model('Category', cateSchema);
+const Category = mongoose.model('Category', cateSchema);
 
-module.exports = Cate;
+module.exports = Category;

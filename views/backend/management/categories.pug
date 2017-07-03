@@ -9,7 +9,7 @@ block content
           h4.card-title Categories Table
           h6.card-subtitle Export data to Copy, CSV, Excel, PDF & Print
           .table-responsive.m-t-40
-            table.display.nowrap.table.table-hover.table-striped.table-bordered(cellspacing='0' width='100%' id="myTable")
+            table.display.nowrap.table.table-hover.table-striped.table-bordered(cellspacing='0', width='100%', id="myTable")
               thead
                 tr
                   th ID
@@ -18,8 +18,7 @@ block content
                   th Parent
                   th Active
               tbody
-                //- for cateItem in categories
-                tr(v-for="cateItem in categories", :key="cateItem.cateId")
+                tr(v-for="cateItem in categories", v-bind:key="cateItem.cateId")
                   td {{cateItem.cateId}}
                   td {{cateItem.cateNm}}
                   td {{cateItem.cateLevel}}
@@ -30,7 +29,7 @@ block content
       .card
         .card-block
           h4.card-title Create New Category
-          form.floating-labels.m-t-40(method="post" action="/categories")
+          form.floating-labels.m-t-40
             .form-group.m-b-40
               input.form-control(type='text' name="cateId" required='', v-model="category.cateId")
               span.bar
@@ -51,12 +50,13 @@ block content
                   option= prntItem.cateNm
               span.bar
               label(for='catePrnt') Parent
-            button.btn.btn-success.waves-effect.waves-light.m-r-10(type='button', @click="create()") Submit
+            button.btn.btn-success.waves-effect.waves-light.m-r-10(type='button', @click="create()") Save
             button.btn.btn-inverse.waves-effect.waves-light(type='submit') Cancel
 
 block externalScript
   script(src='https://unpkg.com/axios/dist/axios.min.js')
   script(src='/themes/backend/components/categories.js')
+
   //- Data Table
-  //- include ../system/dataTableScript.pug
+  include ../system/dataTableScript.pug
 
