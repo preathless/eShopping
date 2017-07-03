@@ -1,6 +1,6 @@
 doctype html
 html(lang='en')
-  
+
   //- Include Header
   include system/header.pug
 
@@ -222,7 +222,7 @@ html(lang='en')
                               a(data-toggle='collapse', data-parent='#accordion', href='index.html#collapseOne', aria-expanded='true', aria-controls='collapseOne')
                                 | Collapsible Group Item #1
                           #collapseOne.collapse.show(role='tabpanel', aria-labelledby='headingOne')
-                            .card-block  Anim pariatur cliche reprehenderit, enim eiusmod high. 
+                            .card-block  Anim pariatur cliche reprehenderit, enim eiusmod high.
                         .card
                           #headingTwo.card-header(role='tab')
                             h5.mb-0
@@ -354,21 +354,21 @@ html(lang='en')
               li
                 a.has-arrow(href='index.html#', aria-expanded='false')
                   i.mdi.mdi-gauge
-                  span.hide-menu Dashboard 
+                  span.hide-menu Dashboard
                 ul.collapse(aria-expanded='false')
                   li
                     a(href='/dashboard') Modern Dashboard
               li
                 a.has-arrow(href='index.html#', aria-expanded='false')
                   i.mdi.mdi-account
-                  span.hide-menu Management 
+                  span.hide-menu Management
                 ul.collapse(aria-expanded='false')
                   li
                     a(href='/dashboard') Users
                   li
                     a(href='/categories') Categories
                   li
-                    a(href='/products') Products  
+                    a(href='/products') Products
               li
                 a.has-arrow(href='index.html#', aria-expanded='false')
                   i.mdi.mdi-bullseye
@@ -566,7 +566,7 @@ html(lang='en')
                         a(href='pages-error-503.html') 503
                   li
                     a.has-arrow(href='index.html#')
-                      | Authentication 
+                      | Authentication
                       span.label.label-rounded.label-success 6
                     ul.collapse(aria-expanded='false')
                       li
@@ -705,8 +705,9 @@ html(lang='en')
           //- Start Page Content
           //- ==============================================================
           //- Row
-          
-          block content
+
+          #app
+            block content
 
           //- Row
           //- ==============================================================
@@ -719,7 +720,7 @@ html(lang='en')
           .right-sidebar
             .slimscrollright
               .rpanel-title
-                | Service Panel 
+                | Service Panel
                 span
                   i.ti-close.right-side-toggle
               .r-panel-body
@@ -759,31 +760,31 @@ html(lang='en')
                     a(href='javascript:void(0)')
                       img.img-circle(src='themes/backend/assets/images/users/1.jpg', alt='user-img')
                       span
-                        | Varun Dhavan 
+                        | Varun Dhavan
                         small.text-success online
                   li
                     a(href='javascript:void(0)')
                       img.img-circle(src='themes/backend/assets/images/users/2.jpg', alt='user-img')
                       span
-                        | Genelia Deshmukh 
+                        | Genelia Deshmukh
                         small.text-warning Away
                   li
                     a(href='javascript:void(0)')
                       img.img-circle(src='themes/backend/assets/images/users/3.jpg', alt='user-img')
                       span
-                        | Ritesh Deshmukh 
+                        | Ritesh Deshmukh
                         small.text-danger Busy
                   li
                     a(href='javascript:void(0)')
                       img.img-circle(src='themes/backend/assets/images/users/4.jpg', alt='user-img')
                       span
-                        | Arijit Sinh 
+                        | Arijit Sinh
                         small.text-muted Offline
                   li
                     a(href='javascript:void(0)')
                       img.img-circle(src='themes/backend/assets/images/users/5.jpg', alt='user-img')
                       span
-                        | Govinda Star 
+                        | Govinda Star
                         small.text-success online
                   li
                     a(href='javascript:void(0)')
@@ -801,9 +802,9 @@ html(lang='en')
                     a(href='javascript:void(0)')
                       img.img-circle(src='themes/backend/assets/images/users/8.jpg', alt='user-img')
                       span
-                        | Pwandeep rajan 
+                        | Pwandeep rajan
                         small.text-success online
-         
+
         footer.footer
           | © 2017 Monster Admin by Dũng Nguyễn
 
