@@ -18,10 +18,10 @@ const {
  */
 //- router.get(CATEGORIES, cateCtrl.getCategories);
 router.route(CATEGORIES)
-        .get(cateCtrl.getCategories)
-        .post(cateCtrl.createCategory)
-        .put(cateCtrl.updateCategory)
-        .delete(cateCtrl.deleteCategory);
+        .get(cateCtrl.apiGetCategories)
+        .post(cateCtrl.apiCreateCategory)
+        // .put(cateCtrl.updateCategory)
+        // .delete(cateCtrl.deleteCategory);
 
 router.get('/getCateParent', cateCtrl.getCategoryParent);
 

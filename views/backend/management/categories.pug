@@ -18,13 +18,13 @@ block content
                   th Parent
                   th Active
               tbody
-                for cateItem in categories
-                  tr
-                    td= cateItem.cateId
-                    td= cateItem.cateNm
-                    td= cateItem.cateLevel
-                    td= cateItem.catePrnt
-                    td= cateItem.activeFlag
+                //- for cateItem in categories
+                tr(v-for="cateItem in categories", :key="cateItem.cateId")
+                  td {{cateItem.cateId}}
+                  td {{cateItem.cateNm}}
+                  td {{cateItem.cateLevel}}
+                  td {{cateItem.catePrnt}}
+                  td {{cateItem.activeFlag}}
     .col-3
       // Column
       .card
@@ -32,35 +32,31 @@ block content
           h4.card-title Create New Category
           form.floating-labels.m-t-40(method="post" action="/categories")
             .form-group.m-b-40
-              input.form-control(type='text' name="cateId" required='')
+              input.form-control(type='text' name="cateId" required='', v-model="category.cateId")
               span.bar
               label(for='cateId') ID
             .form-group.m-b-40
-              input.form-control(type='text' name="cateNm" required='')
+              input.form-control(type='text' name="cateNm" required='', v-model="category.cateNm")
               span.bar
               label(for='cateNm') Name
             .form-group.m-b-40
-              select.form-control.p-0(name="cateLevel" required='')
-                option
-                option 1
-                option 2
-                option 3
+              select.form-control.p-0(name="cateLevel" required='', v-model="category.cateLevel")
+                option(v-for="opts in levels", :key="opts.value", :value="opts.value") {{opts.name}}
               span.bar
               label(for='cateLevel') Level
             .form-group.m-b-40
-              select.form-control.p-0(name="catePrnt" required='')
+              select.form-control.p-0(name="catePrnt" required='', v-model="category.catePrnt")
                 option
                 for prntItem in cateParents
                   option= prntItem.cateNm
               span.bar
               label(for='catePrnt') Parent
-            button.btn.btn-success.waves-effect.waves-light.m-r-10(type='submit') Submit
+            button.btn.btn-success.waves-effect.waves-light.m-r-10(type='button', @click="create()") Submit
             button.btn.btn-inverse.waves-effect.waves-light(type='submit') Cancel
 
 block externalScript
   script(src='https://unpkg.com/axios/dist/axios.min.js')
-
+  script(src='/themes/backend/components/categories.js')
   //- Data Table
-  include ../system/dataTableScript.pug
+  //- include ../system/dataTableScript.pug
 
-  

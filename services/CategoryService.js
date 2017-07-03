@@ -13,7 +13,7 @@ const createCategory = (cateInfo) => {
     cateInfo.activeFlag = true;
     cateInfo.deleteFlag = false;
     // Return promise
-    return Cate.create(cateInfo); 
+    return Category.create(cateInfo);
 };
 
 module.exports = {
